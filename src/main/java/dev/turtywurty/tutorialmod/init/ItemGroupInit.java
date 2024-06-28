@@ -10,7 +10,7 @@ import net.minecraft.text.Text;
 import java.util.Optional;
 
 public class ItemGroupInit {
-    private static final Text EXAMPLE_TITLE = Text.translatable("itemGroup." + TutorialMod.MOD_ID + ".example_group");
+    public static final Text EXAMPLE_TITLE = Text.translatable("itemGroup." + TutorialMod.MOD_ID + ".example_group");
 
     public static final ItemGroup EXAMPLE_GROUP = register("example_group", FabricItemGroup.builder()
             .displayName(EXAMPLE_TITLE)
@@ -20,7 +20,7 @@ public class ItemGroupInit {
                     .filter(key -> key.getNamespace().equals(TutorialMod.MOD_ID))
                     .map(Registries.ITEM::getOrEmpty)
                     .map(Optional::orElseThrow)
-                    .filter(ItemInit.BLACKLIST::contains)
+                    .filter(item -> !ItemInit.BLACKLIST.contains(item))
                     .forEach(entries::add))
             .build());
 

@@ -1,0 +1,6 @@
+// 1.21	2024-06-28T15:28:43.3363498	Tutorial Mod/Model Definitions
+91e7d83efecbf6946ecefec87e95b5df745d2448 assets\tutorialmod\models\item\example_food.json
+f0c403b69c925ad55cd36b4c90d185294fe9cee4 assets\tutorialmod\models\item\example_item.json
+a3356530b08bd3cdb3b57c3040ae1d91cd093bb4 assets\tutorialmod\blockstates\example_block.json
+1f63ade4fd62f4b546723d49dae685c065f07538 assets\tutorialmod\models\block\example_block.json
+a4ba5aef7c12629ab6a8ead3120151083d1f8627 assets\tutorialmod\models\item\example_block.json
