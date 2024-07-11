@@ -32,5 +32,9 @@ public class TutorialModEnglishLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add(ItemInit.EXAMPLE_FOOD, "Example Food");
         translationBuilder.add(BlockInit.EXAMPLE_BLOCK, "Example Block");
         addText(translationBuilder, ItemGroupInit.EXAMPLE_TITLE, "Tutorial Mod");
+        translationBuilder.add(BlockInit.EXAMPLE_OVERWORLD_ORE, "Example Ore");
+        translationBuilder.add(BlockInit.EXAMPLE_DEEPSLATE_ORE, "Example Deepslate Ore");
+        translationBuilder.add(BlockInit.EXAMPLE_NETHER_ORE, "Example Nether Ore");
+        translationBuilder.add(BlockInit.EXAMPLE_END_ORE, "Example End Ore");
     }
 }

@@ -1,5 +1,9 @@
 {
   "values": [
-    "tutorialmod:example_block"
+    "tutorialmod:example_block",
+    "tutorialmod:example_overworld_ore",
+    "tutorialmod:example_deepslate_ore",
+    "tutorialmod:example_nether_ore",
+    "tutorialmod:example_end_ore"
   ]
 }

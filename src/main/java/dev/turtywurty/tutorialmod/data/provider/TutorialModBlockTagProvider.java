@@ -23,10 +23,18 @@ public class TutorialModBlockTagProvider extends FabricTagProvider.BlockTagProvi
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
-                .add(BlockInit.EXAMPLE_BLOCK);
+                .add(BlockInit.EXAMPLE_BLOCK)
+                .add(BlockInit.EXAMPLE_OVERWORLD_ORE)
+                .add(BlockInit.EXAMPLE_DEEPSLATE_ORE)
+                .add(BlockInit.EXAMPLE_NETHER_ORE)
+                .add(BlockInit.EXAMPLE_END_ORE);
 
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
-                .add(BlockInit.EXAMPLE_BLOCK);
+                .add(BlockInit.EXAMPLE_BLOCK)
+                .add(BlockInit.EXAMPLE_OVERWORLD_ORE)
+                .add(BlockInit.EXAMPLE_DEEPSLATE_ORE)
+                .add(BlockInit.EXAMPLE_NETHER_ORE)
+                .add(BlockInit.EXAMPLE_END_ORE);
 
         getOrCreateTagBuilder(EXAMPLE_TAG)
                 .add(BlockInit.EXAMPLE_BLOCK)

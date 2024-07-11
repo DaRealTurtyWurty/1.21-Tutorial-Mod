@@ -1,5 +1,9 @@
 {
   "block.tutorialmod.example_block": "Example Block",
+  "block.tutorialmod.example_deepslate_ore": "Example Deepslate Ore",
+  "block.tutorialmod.example_end_ore": "Example End Ore",
+  "block.tutorialmod.example_nether_ore": "Example Nether Ore",
+  "block.tutorialmod.example_overworld_ore": "Example Ore",
   "item.tutorialmod.example_food": "Example Food",
   "item.tutorialmod.example_item": "Example Item",
   "itemGroup.tutorialmod.example_group": "Tutorial Mod"

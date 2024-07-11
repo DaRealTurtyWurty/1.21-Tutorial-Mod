@@ -1,2 +1,6 @@
-// 1.21	2024-06-28T15:28:43.3353516	Tutorial Mod/Block Loot Tables
+// 1.21	2024-07-11T16:36:51.9407455	Tutorial Mod/Block Loot Tables
+3972a39bc6985431020dd0e6e10d42bb2aca5ccd data\tutorialmod\loot_table\blocks\example_nether_ore.json
 bb95bc3c7ef66b2ace24193d3854031ee2bfdff7 data\tutorialmod\loot_table\blocks\example_block.json
+c654ee1ae5b2aa1c603d2a68fad32834d31888e8 data\tutorialmod\loot_table\blocks\example_end_ore.json
+16f00fb22f91bcaddff10642b919eda472c01202 data\tutorialmod\loot_table\blocks\example_deepslate_ore.json
+3c182d0ae18a59b8f00a16914d7150e6131c9f44 data\tutorialmod\loot_table\blocks\example_overworld_ore.json

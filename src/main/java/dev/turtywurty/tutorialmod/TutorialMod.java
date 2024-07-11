@@ -3,6 +3,7 @@ package dev.turtywurty.tutorialmod;
 import dev.turtywurty.tutorialmod.init.BlockInit;
 import dev.turtywurty.tutorialmod.init.ItemGroupInit;
 import dev.turtywurty.tutorialmod.init.ItemInit;
+import dev.turtywurty.tutorialmod.init.worldgen.BiomeModificationInit;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -24,6 +25,7 @@ public class TutorialMod implements ModInitializer {
 		ItemInit.load();
 		BlockInit.load();
 		ItemGroupInit.load();
+		BiomeModificationInit.load();
 
 		// Event handling
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {

@@ -15,5 +15,9 @@ public class TutorialModBlockLootTableProvider extends FabricBlockLootTableProvi
     @Override
     public void generate() {
         addDrop(BlockInit.EXAMPLE_BLOCK);
+        addDrop(BlockInit.EXAMPLE_OVERWORLD_ORE);
+        addDrop(BlockInit.EXAMPLE_DEEPSLATE_ORE);
+        addDrop(BlockInit.EXAMPLE_NETHER_ORE);
+        addDrop(BlockInit.EXAMPLE_END_ORE);
     }
 }

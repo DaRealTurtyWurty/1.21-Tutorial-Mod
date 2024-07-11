@@ -1,0 +1,7 @@
+// 1.21	2024-07-11T16:36:51.9427456	Tutorial Mod/World Generator
+2b7be21c8ed59ae7f3f5d3cf5e38ed965694ea3c data\tutorialmod\worldgen\configured_feature\overworld_example_ore.json
+49a31939079c886ac4ded684ee7f1becce888606 data\tutorialmod\worldgen\placed_feature\overworld_example_ore.json
+74d3d799e4498849e7282ad46bd28ba65d8878a4 data\tutorialmod\worldgen\configured_feature\end_example_ore.json
+46c8564640a08c996115114e219245c619f60c23 data\tutorialmod\worldgen\placed_feature\end_example_ore.json
+91a75448ee503c8a2f9809d7cda1fbb17f1118d7 data\tutorialmod\worldgen\placed_feature\nether_example_ore.json
+6e7e0a8bc3bd09e6833b74739fb3bafa0395337a data\tutorialmod\worldgen\configured_feature\nether_example_ore.json
