@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_example_overworld_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tutorialmod:example_overworld_ore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:example_item_from_smelting_example_overworld_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_example_overworld_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:example_item_from_smelting_example_overworld_ore"
+    ]
+  }
+}

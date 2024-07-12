@@ -1,10 +1,7 @@
 package dev.turtywurty.tutorialmod;
 
 import dev.turtywurty.tutorialmod.data.generator.TutorialModWorldGenerator;
-import dev.turtywurty.tutorialmod.data.provider.TutorialModBlockLootTableProvider;
-import dev.turtywurty.tutorialmod.data.provider.TutorialModBlockTagProvider;
-import dev.turtywurty.tutorialmod.data.provider.TutorialModEnglishLanguageProvider;
-import dev.turtywurty.tutorialmod.data.provider.TutorialModModelProvider;
+import dev.turtywurty.tutorialmod.data.provider.*;
 import dev.turtywurty.tutorialmod.init.worldgen.ConfiguredFeatureInit;
 import dev.turtywurty.tutorialmod.init.worldgen.PlacedFeatureInit;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -21,6 +18,7 @@ public class TutorialModDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(TutorialModBlockLootTableProvider::new);
 		pack.addProvider(TutorialModBlockTagProvider::new);
 		pack.addProvider(TutorialModWorldGenerator::new);
+		pack.addProvider(TutorialModRecipeProvider::new);
 	}
 
 	@Override

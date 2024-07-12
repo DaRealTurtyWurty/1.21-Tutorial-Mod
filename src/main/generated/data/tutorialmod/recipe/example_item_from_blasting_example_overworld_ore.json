@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.2,
+  "group": "example",
+  "ingredient": {
+    "item": "tutorialmod:example_overworld_ore"
+  },
+  "result": {
+    "id": "tutorialmod:example_item"
+  }
+}

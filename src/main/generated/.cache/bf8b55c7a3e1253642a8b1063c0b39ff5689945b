@@ -1,4 +1,4 @@
-// 1.21	2024-07-11T16:36:51.9417459	Tutorial Mod/Model Definitions
+// 1.21	2024-07-12T16:01:53.5265015	Tutorial Mod/Model Definitions
 657162d737cc668239076e1c6287a82ab0354ea3 assets\tutorialmod\models\item\example_deepslate_ore.json
 91e7d83efecbf6946ecefec87e95b5df745d2448 assets\tutorialmod\models\item\example_food.json
 9aea3bd978a82342a54f7fac4753de78f24f27f7 assets\tutorialmod\blockstates\example_nether_ore.json
@@ -6,8 +6,8 @@
 7a924291624e4e784a8d49f83383f69560cf8080 assets\tutorialmod\models\block\example_overworld_ore.json
 9cfa35b4cb65e99cbed895621b8ca2f92e270128 assets\tutorialmod\blockstates\example_deepslate_ore.json
 b004ffd2006c51334199e5ccd9d8e33c2959a4d6 assets\tutorialmod\blockstates\example_overworld_ore.json
-a3356530b08bd3cdb3b57c3040ae1d91cd093bb4 assets\tutorialmod\blockstates\example_block.json
 f0c403b69c925ad55cd36b4c90d185294fe9cee4 assets\tutorialmod\models\item\example_item.json
+a3356530b08bd3cdb3b57c3040ae1d91cd093bb4 assets\tutorialmod\blockstates\example_block.json
 1f63ade4fd62f4b546723d49dae685c065f07538 assets\tutorialmod\models\block\example_block.json
 9699cf264e62f6baedce4aed12850c567b6467fd assets\tutorialmod\models\block\example_nether_ore.json
 23101abcf4343a941ebb2e0bdf2cbb46d8bb67d9 assets\tutorialmod\models\item\example_overworld_ore.json
