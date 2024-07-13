@@ -1,4 +1,5 @@
-// 1.21	2024-07-12T16:01:53.5265015	Tutorial Mod/Tags for minecraft:block
+// 1.21	2024-07-13T15:39:54.9656793	Tutorial Mod/Tags for minecraft:block
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\tutorialmod\tags\block\incorrect_for_example_tool.json
 83f98d3873e272ae538f916cdb65538d9dfa371e data\minecraft\tags\block\mineable\pickaxe.json
 d55fd4e296a8530a6550355445a038b49f2290b3 data\tutorialmod\tags\block\example.json
 83f98d3873e272ae538f916cdb65538d9dfa371e data\minecraft\tags\block\needs_iron_tool.json

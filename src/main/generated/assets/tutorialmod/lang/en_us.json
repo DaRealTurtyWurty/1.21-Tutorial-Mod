@@ -4,7 +4,12 @@
   "block.tutorialmod.example_end_ore": "Example End Ore",
   "block.tutorialmod.example_nether_ore": "Example Nether Ore",
   "block.tutorialmod.example_overworld_ore": "Example Ore",
+  "item.tutorialmod.example_axe": "Example Axe",
   "item.tutorialmod.example_food": "Example Food",
+  "item.tutorialmod.example_hoe": "Example Hoe",
   "item.tutorialmod.example_item": "Example Item",
+  "item.tutorialmod.example_pickaxe": "Example Pickaxe",
+  "item.tutorialmod.example_shovel": "Example Shovel",
+  "item.tutorialmod.example_sword": "Example Sword",
   "itemGroup.tutorialmod.example_group": "Tutorial Mod"
 }

@@ -36,5 +36,10 @@ public class TutorialModEnglishLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add(BlockInit.EXAMPLE_DEEPSLATE_ORE, "Example Deepslate Ore");
         translationBuilder.add(BlockInit.EXAMPLE_NETHER_ORE, "Example Nether Ore");
         translationBuilder.add(BlockInit.EXAMPLE_END_ORE, "Example End Ore");
+        translationBuilder.add(ItemInit.EXAMPLE_SWORD, "Example Sword");
+        translationBuilder.add(ItemInit.EXAMPLE_PICKAXE, "Example Pickaxe");
+        translationBuilder.add(ItemInit.EXAMPLE_AXE, "Example Axe");
+        translationBuilder.add(ItemInit.EXAMPLE_SHOVEL, "Example Shovel");
+        translationBuilder.add(ItemInit.EXAMPLE_HOE, "Example Hoe");
     }
 }
