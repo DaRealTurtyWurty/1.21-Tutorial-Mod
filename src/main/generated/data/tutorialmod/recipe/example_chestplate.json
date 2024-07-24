@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "E": {
+      "item": "tutorialmod:example_item"
+    }
+  },
+  "pattern": [
+    "E E",
+    "EEE",
+    "EEE"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tutorialmod:example_chestplate"
+  }
+}

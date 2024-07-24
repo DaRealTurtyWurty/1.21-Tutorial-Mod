@@ -1,4 +1,4 @@
-// 1.21	2024-07-13T15:39:54.9616792	Tutorial Mod/Block Loot Tables
+// 1.21	2024-07-23T14:12:16.457038	Tutorial Mod/Block Loot Tables
 3972a39bc6985431020dd0e6e10d42bb2aca5ccd data\tutorialmod\loot_table\blocks\example_nether_ore.json
 bb95bc3c7ef66b2ace24193d3854031ee2bfdff7 data\tutorialmod\loot_table\blocks\example_block.json
 c654ee1ae5b2aa1c603d2a68fad32834d31888e8 data\tutorialmod\loot_table\blocks\example_end_ore.json

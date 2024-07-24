@@ -41,5 +41,9 @@ public class TutorialModEnglishLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add(ItemInit.EXAMPLE_AXE, "Example Axe");
         translationBuilder.add(ItemInit.EXAMPLE_SHOVEL, "Example Shovel");
         translationBuilder.add(ItemInit.EXAMPLE_HOE, "Example Hoe");
+        translationBuilder.add(ItemInit.EXAMPLE_HELMET, "Example Helmet");
+        translationBuilder.add(ItemInit.EXAMPLE_CHESTPLATE, "Example Chestplate");
+        translationBuilder.add(ItemInit.EXAMPLE_LEGGINGS, "Example Leggings");
+        translationBuilder.add(ItemInit.EXAMPLE_BOOTS, "Example Boots");
     }
 }

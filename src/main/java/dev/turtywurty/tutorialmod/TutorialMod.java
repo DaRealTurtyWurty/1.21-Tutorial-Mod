@@ -1,5 +1,6 @@
 package dev.turtywurty.tutorialmod;
 
+import dev.turtywurty.tutorialmod.init.ArmorMaterialInit;
 import dev.turtywurty.tutorialmod.init.BlockInit;
 import dev.turtywurty.tutorialmod.init.ItemGroupInit;
 import dev.turtywurty.tutorialmod.init.ItemInit;
@@ -26,6 +27,7 @@ public class TutorialMod implements ModInitializer {
 		BlockInit.load();
 		ItemGroupInit.load();
 		BiomeModificationInit.load();
+		ArmorMaterialInit.load();
 
 		// Event handling
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {

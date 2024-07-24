@@ -106,6 +106,36 @@ public class TutorialModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ItemInit.EXAMPLE_ITEM), conditionsFromItem(ItemInit.EXAMPLE_ITEM))
                 .criterion(hasTag(ConventionalItemTags.WOODEN_RODS), conditionsFromTag(ConventionalItemTags.WOODEN_RODS))
                 .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ItemInit.EXAMPLE_HELMET)
+                .input('E', ItemInit.EXAMPLE_ITEM)
+                .pattern("EEE")
+                .pattern("E E")
+                .criterion(hasItem(ItemInit.EXAMPLE_ITEM), conditionsFromItem(ItemInit.EXAMPLE_ITEM))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ItemInit.EXAMPLE_CHESTPLATE)
+                .input('E', ItemInit.EXAMPLE_ITEM)
+                .pattern("E E")
+                .pattern("EEE")
+                .pattern("EEE")
+                .criterion(hasItem(ItemInit.EXAMPLE_ITEM), conditionsFromItem(ItemInit.EXAMPLE_ITEM))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ItemInit.EXAMPLE_LEGGINGS)
+                .input('E', ItemInit.EXAMPLE_ITEM)
+                .pattern("EEE")
+                .pattern("E E")
+                .pattern("E E")
+                .criterion(hasItem(ItemInit.EXAMPLE_ITEM), conditionsFromItem(ItemInit.EXAMPLE_ITEM))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ItemInit.EXAMPLE_BOOTS)
+                .input('E', ItemInit.EXAMPLE_ITEM)
+                .pattern("E E")
+                .pattern("E E")
+                .criterion(hasItem(ItemInit.EXAMPLE_ITEM), conditionsFromItem(ItemInit.EXAMPLE_ITEM))
+                .offerTo(exporter);
     }
 
     private static @NotNull String hasTag(@NotNull TagKey<Item> tag) {

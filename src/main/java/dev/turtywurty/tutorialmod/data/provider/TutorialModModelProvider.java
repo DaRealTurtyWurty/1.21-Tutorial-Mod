@@ -31,5 +31,9 @@ public class TutorialModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ItemInit.EXAMPLE_AXE, Models.HANDHELD);
         itemModelGenerator.register(ItemInit.EXAMPLE_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ItemInit.EXAMPLE_HOE, Models.HANDHELD);
+        itemModelGenerator.register(ItemInit.EXAMPLE_HELMET, Models.GENERATED);
+        itemModelGenerator.register(ItemInit.EXAMPLE_CHESTPLATE, Models.GENERATED);
+        itemModelGenerator.register(ItemInit.EXAMPLE_LEGGINGS, Models.GENERATED);
+        itemModelGenerator.register(ItemInit.EXAMPLE_BOOTS, Models.GENERATED);
     }
 }
