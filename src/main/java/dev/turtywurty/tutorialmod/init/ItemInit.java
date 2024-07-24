@@ -38,16 +38,20 @@ public class ItemInit {
                     .attributeModifiers(HoeItem.createAttributeModifiers(TutorialModToolMaterials.EXAMPLE, 0, -3.0F))));
 
     public static final ArmorItem EXAMPLE_HELMET = register("example_helmet",
-            new ArmorItem(ArmorMaterialInit.EXAMPLE, ArmorItem.Type.HELMET, new Item.Settings().maxCount(1)));
+            new ArmorItem(ArmorMaterialInit.EXAMPLE, ArmorItem.Type.HELMET, new Item.Settings()
+                    .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(45))));
 
     public static final ArmorItem EXAMPLE_CHESTPLATE = register("example_chestplate",
-            new ArmorItem(ArmorMaterialInit.EXAMPLE, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxCount(1)));
+            new ArmorItem(ArmorMaterialInit.EXAMPLE, ArmorItem.Type.CHESTPLATE, new Item.Settings()
+                    .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(45))));
 
     public static final ArmorItem EXAMPLE_LEGGINGS = register("example_leggings",
-            new ArmorItem(ArmorMaterialInit.EXAMPLE, ArmorItem.Type.LEGGINGS, new Item.Settings().maxCount(1)));
+            new ArmorItem(ArmorMaterialInit.EXAMPLE, ArmorItem.Type.LEGGINGS, new Item.Settings()
+                    .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(45))));
 
     public static final ArmorItem EXAMPLE_BOOTS = register("example_boots",
-            new ArmorItem(ArmorMaterialInit.EXAMPLE, ArmorItem.Type.BOOTS, new Item.Settings().maxCount(1)));
+            new ArmorItem(ArmorMaterialInit.EXAMPLE, ArmorItem.Type.BOOTS, new Item.Settings()
+                    .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(45))));
 
     public static <T extends Item> T register(String name, T item) {
         return Registry.register(Registries.ITEM, TutorialMod.id(name), item);
