@@ -36,5 +36,11 @@ public class TutorialModBlockTagProvider extends FabricTagProvider.BlockTagProvi
                 .add(Blocks.BLUE_ORCHID);
 
         getOrCreateTagBuilder(TagList.Blocks.INCORRECT_FOR_EXAMPLE_TOOL);
+
+        getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS)
+                .add(BlockInit.EXAMPLE_FLOWER);
+
+        getOrCreateTagBuilder(BlockTags.FLOWER_POTS)
+                .add(BlockInit.EXAMPLE_FLOWER_POT);
     }
 }

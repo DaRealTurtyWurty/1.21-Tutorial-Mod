@@ -1,5 +1,7 @@
-// 1.21	2024-07-23T14:12:16.4620459	Tutorial Mod/Tags for minecraft:block
+// 1.21	2024-07-25T15:17:53.8343459	Tutorial Mod/Tags for minecraft:block
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\tutorialmod\tags\block\incorrect_for_example_tool.json
+6a60f26b0451bf1cdd5dd667dfc6c088b46cd2a6 data\minecraft\tags\block\flower_pots.json
 83f98d3873e272ae538f916cdb65538d9dfa371e data\minecraft\tags\block\mineable\pickaxe.json
 d55fd4e296a8530a6550355445a038b49f2290b3 data\tutorialmod\tags\block\example.json
+845125a7d2e7e742b7ed1286b7e481d3b0feb50d data\minecraft\tags\block\small_flowers.json
 83f98d3873e272ae538f916cdb65538d9dfa371e data\minecraft\tags\block\needs_iron_tool.json

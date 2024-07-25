@@ -45,5 +45,7 @@ public class TutorialModEnglishLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add(ItemInit.EXAMPLE_CHESTPLATE, "Example Chestplate");
         translationBuilder.add(ItemInit.EXAMPLE_LEGGINGS, "Example Leggings");
         translationBuilder.add(ItemInit.EXAMPLE_BOOTS, "Example Boots");
+        translationBuilder.add(BlockInit.EXAMPLE_FLOWER, "Example Flower");
+        translationBuilder.add(BlockInit.EXAMPLE_FLOWER_POT, "Example Flower Pot");
     }
 }

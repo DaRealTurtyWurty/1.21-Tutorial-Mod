@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:flower",
+  "config": {
+    "feature": "tutorialmod:example_flower",
+    "tries": 64,
+    "xz_spread": 10,
+    "y_spread": 4
+  }
+}

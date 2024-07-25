@@ -19,5 +19,7 @@ public class TutorialModBlockLootTableProvider extends FabricBlockLootTableProvi
         addDrop(BlockInit.EXAMPLE_DEEPSLATE_ORE);
         addDrop(BlockInit.EXAMPLE_NETHER_ORE);
         addDrop(BlockInit.EXAMPLE_END_ORE);
+        addDrop(BlockInit.EXAMPLE_FLOWER);
+        addPottedPlantDrops(BlockInit.EXAMPLE_FLOWER_POT);
     }
 }

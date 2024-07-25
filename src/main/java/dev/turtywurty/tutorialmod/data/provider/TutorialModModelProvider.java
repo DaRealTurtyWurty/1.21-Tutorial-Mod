@@ -20,6 +20,7 @@ public class TutorialModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.EXAMPLE_DEEPSLATE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.EXAMPLE_NETHER_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.EXAMPLE_END_ORE);
+        blockStateModelGenerator.registerFlowerPotPlant(BlockInit.EXAMPLE_FLOWER, BlockInit.EXAMPLE_FLOWER_POT, BlockStateModelGenerator.TintType.NOT_TINTED);
     }
 
     @Override

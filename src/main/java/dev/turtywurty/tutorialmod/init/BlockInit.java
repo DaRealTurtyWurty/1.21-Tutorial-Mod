@@ -1,12 +1,17 @@
 package dev.turtywurty.tutorialmod.init;
 
 import dev.turtywurty.tutorialmod.TutorialMod;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
+import net.minecraft.block.*;
+import net.minecraft.block.piston.PistonBehavior;
+import net.minecraft.component.type.SuspiciousStewEffectsComponent;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
+
+import java.util.List;
 
 public class BlockInit {
     public static final Block EXAMPLE_BLOCK = registerWithItem("example_block", new Block(AbstractBlock.Settings.create()
@@ -29,6 +34,21 @@ public class BlockInit {
             .strength(3.0F, 3.0F)
             .requiresTool()));
 
+    public static final FlowerBlock EXAMPLE_FLOWER = registerWithItem("example_flower", new FlowerBlock(
+            createStewEffects(
+                    new SuspiciousStewEffectsComponent.StewEffect(StatusEffects.SPEED, 400),
+                    new SuspiciousStewEffectsComponent.StewEffect(StatusEffects.JUMP_BOOST, 400)),
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.DARK_RED)
+                    .noCollision()
+                    .breakInstantly()
+                    .sounds(BlockSoundGroup.GRASS)
+                    .offset(AbstractBlock.OffsetType.XZ)
+                    .pistonBehavior(PistonBehavior.DESTROY)));
+
+    public static final Block EXAMPLE_FLOWER_POT = register("example_flower_pot",
+            Blocks.createFlowerPotBlock(EXAMPLE_FLOWER));
+
     public static <T extends Block> T register(String name, T block) {
         return Registry.register(Registries.BLOCK, TutorialMod.id(name), block);
     }
@@ -43,5 +63,10 @@ public class BlockInit {
         return registerWithItem(name, block, new Item.Settings());
     }
 
-    public static void load() {}
+    private static SuspiciousStewEffectsComponent createStewEffects(SuspiciousStewEffectsComponent.StewEffect... effects) {
+        return new SuspiciousStewEffectsComponent(List.of(effects));
+    }
+
+    public static void load() {
+    }
 }
