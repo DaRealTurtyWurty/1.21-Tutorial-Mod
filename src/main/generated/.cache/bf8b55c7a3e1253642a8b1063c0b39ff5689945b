@@ -1,4 +1,4 @@
-// 1.21	2024-07-25T15:17:53.8333453	Tutorial Mod/Model Definitions
+// 1.21	2024-08-04T15:40:23.9738263	Tutorial Mod/Model Definitions
 657162d737cc668239076e1c6287a82ab0354ea3 assets\tutorialmod\models\item\example_deepslate_ore.json
 91e7d83efecbf6946ecefec87e95b5df745d2448 assets\tutorialmod\models\item\example_food.json
 9aea3bd978a82342a54f7fac4753de78f24f27f7 assets\tutorialmod\blockstates\example_nether_ore.json
@@ -11,8 +11,8 @@ b50fe872ac14d8074e1fe06622799eb495149577 assets\tutorialmod\blockstates\example_
 2095c75a430c737b72556ed90213c1b477242805 assets\tutorialmod\models\item\example_shovel.json
 6deea7ff88637b1070bf5b470b6109142d53e4cf assets\tutorialmod\models\item\example_pickaxe.json
 cdcc10b177fc6cec38deef777ecb7b29108c81b9 assets\tutorialmod\models\item\example_sword.json
-6e88e4e0eec5d51aa2f61eca291037591d80d3e2 assets\tutorialmod\models\item\example_helmet.json
 d4195f66ae5420c6dfb41d8216ec8605b8a44e99 assets\tutorialmod\models\block\example_flower_pot.json
+6e88e4e0eec5d51aa2f61eca291037591d80d3e2 assets\tutorialmod\models\item\example_helmet.json
 6d92c76f07c205fbac01be8fa71bd28d382bc5fc assets\tutorialmod\models\block\example_end_ore.json
 b56d0038bf9505f0522cc4a4b3664cd07c672f0f assets\tutorialmod\blockstates\example_end_ore.json
 d438add3fd0a13e220e7bc8b7a71015da67e995a assets\tutorialmod\models\item\example_flower.json
