@@ -1,9 +1,6 @@
 package dev.turtywurty.tutorialmod;
 
-import dev.turtywurty.tutorialmod.init.ArmorMaterialInit;
-import dev.turtywurty.tutorialmod.init.BlockInit;
-import dev.turtywurty.tutorialmod.init.ItemGroupInit;
-import dev.turtywurty.tutorialmod.init.ItemInit;
+import dev.turtywurty.tutorialmod.init.*;
 import dev.turtywurty.tutorialmod.init.worldgen.BiomeModificationInit;
 import net.fabricmc.api.ModInitializer;
 
@@ -28,6 +25,7 @@ public class TutorialMod implements ModInitializer {
 		ItemGroupInit.load();
 		BiomeModificationInit.load();
 		ArmorMaterialInit.load();
+		BoatInit.load();
 
 		// Event handling
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {

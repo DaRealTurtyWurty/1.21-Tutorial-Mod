@@ -1,5 +1,6 @@
 package dev.turtywurty.tutorialmod.init;
 
+import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import dev.turtywurty.tutorialmod.TutorialMod;
 import dev.turtywurty.tutorialmod.list.FoodList;
 import dev.turtywurty.tutorialmod.list.enums.TutorialModToolMaterials;
@@ -53,9 +54,22 @@ public class ItemInit {
             new ArmorItem(ArmorMaterialInit.EXAMPLE, ArmorItem.Type.BOOTS, new Item.Settings()
                     .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(45))));
 
+    public static final SignItem EXAMPLE_SIGN = register("example_sign",
+            new SignItem(new Item.Settings().maxCount(16), BlockInit.EXAMPLE_SIGN, BlockInit.EXAMPLE_WALL_SIGN));
+
+    public static final HangingSignItem EXAMPLE_HANGING_SIGN = register("example_hanging_sign",
+            new HangingSignItem(BlockInit.EXAMPLE_HANGING_SIGN, BlockInit.EXAMPLE_WALL_HANGING_SIGN, new Item.Settings().maxCount(16)));
+
+    public static final Item EXAMPLE_BOAT =
+            TerraformBoatItemHelper.registerBoatItem(BoatInit.EXAMPLE_BOAT_ID, BoatInit.EXAMPLE_BOAT_KEY, false);
+
+    public static final Item EXAMPLE_CHEST_BOAT =
+            TerraformBoatItemHelper.registerBoatItem(BoatInit.EXAMPLE_CHEST_BOAT_ID, BoatInit.EXAMPLE_BOAT_KEY, true);
+
     public static <T extends Item> T register(String name, T item) {
         return Registry.register(Registries.ITEM, TutorialMod.id(name), item);
     }
 
-    public static void load() {}
+    public static void load() {
+    }
 }

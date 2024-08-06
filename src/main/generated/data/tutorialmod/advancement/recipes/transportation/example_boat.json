@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_example_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tutorialmod:example_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tutorialmod:example_boat"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_example_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tutorialmod:example_boat"
+    ]
+  }
+}

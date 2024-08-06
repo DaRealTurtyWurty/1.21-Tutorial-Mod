@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "T": {
+      "item": "tutorialmod:example_planks"
+    }
+  },
+  "pattern": [
+    "TT"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tutorialmod:example_pressure_plate"
+  }
+}

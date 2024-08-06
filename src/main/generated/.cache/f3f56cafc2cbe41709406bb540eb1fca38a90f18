@@ -1,11 +1,28 @@
-// 1.21	2024-08-04T15:40:23.9663115	Tutorial Mod/Tags for minecraft:item
-6ed93c8677265be4996a351731d42597ca17454d data\minecraft\tags\item\head_armor.json
+// 1.21	2024-08-06T17:05:02.6750057	Tutorial Mod/Tags for minecraft:item
 c2cd4b0942de14e376601dbeebe82ccce6687e72 data\minecraft\tags\item\pickaxes.json
 a4d309e51668dcd3cc0d4860f2c0f70705045109 data\minecraft\tags\item\chest_armor.json
-b8cca09ce53b98f6b113823a8692ad63da14a361 data\minecraft\tags\item\foot_armor.json
+c74e94cda5ed0f54496a355171d58dfa8953ab7e data\minecraft\tags\item\saplings.json
 6a1ee4f9b4aec0c1d0f66ef1c74c748b50cf456b data\minecraft\tags\item\shovels.json
-845125a7d2e7e742b7ed1286b7e481d3b0feb50d data\minecraft\tags\item\small_flowers.json
+9b7de7175fae19d26297956b4280c5dff812cc27 data\minecraft\tags\item\boats.json
+23fe0795dfad8817ce88d285524ccf64945a8411 data\minecraft\tags\item\wooden_slabs.json
+c2dfca7bc936499be23ac4212b206edd87e0e1c2 data\minecraft\tags\item\wooden_buttons.json
+f4cefd20fd838b3d621ff059c00e9fe969e7e229 data\minecraft\tags\item\wooden_pressure_plates.json
 0f53fc7f704bf36025715c4c8bf178ea7b08f05c data\minecraft\tags\item\axes.json
+4c5d4f1b4593ccae779270e375598a62f2bc8f40 data\minecraft\tags\item\chest_boats.json
+d33233adbf84788dcf3a67acd2bbb8953e9e908c data\minecraft\tags\item\logs_that_burn.json
+96fae12f000f67c353c38c37a67af66cb8f350bb data\tutorialmod\tags\item\example_logs.json
+6ed93c8677265be4996a351731d42597ca17454d data\minecraft\tags\item\head_armor.json
+b8cca09ce53b98f6b113823a8692ad63da14a361 data\minecraft\tags\item\foot_armor.json
+6db5fae30a211e6b16508d90ca0110428758fe18 data\minecraft\tags\item\wooden_fences.json
+845125a7d2e7e742b7ed1286b7e481d3b0feb50d data\minecraft\tags\item\small_flowers.json
+052e13667790d4863ae7ee13fb46d295de6a1edd data\minecraft\tags\item\planks.json
+0767afed15a8e77b55dd1eed5bd9bbd013c14feb data\minecraft\tags\item\wooden_trapdoors.json
+ed52bde9ea9aa15f14baf17120d867aa42d778d3 data\minecraft\tags\item\signs.json
+d34f55db6ccafd27540d5da4aee1f1d12117252e data\minecraft\tags\item\wooden_doors.json
+c4d402b6889a41bbccc53739ef8804af5bb6ae8d data\minecraft\tags\item\leaves.json
+b07e62fc74d90d02d82983a165987c5426c0c3a9 data\minecraft\tags\item\wooden_stairs.json
+d0cdc2f469b61a8fa6a355b0cc124f9994fbdbfc data\minecraft\tags\item\fence_gates.json
+d3c2f7944f4bd4234494785b99f72dd8d67fb76e data\minecraft\tags\item\hanging_signs.json
 e4070224101f9231c4f54fa4e394bc2575df7133 data\minecraft\tags\item\leg_armor.json
 a7bfcb6e8bb555f1193d27bc3e769ccaa81fde8d data\minecraft\tags\item\hoes.json
 e275b04cc216c3f29809d88626232935d3c9f42a data\minecraft\tags\item\swords.json

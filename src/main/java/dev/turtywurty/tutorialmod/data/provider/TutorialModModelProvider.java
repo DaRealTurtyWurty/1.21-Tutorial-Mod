@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
+import net.minecraft.data.family.BlockFamily;
 
 public class TutorialModModelProvider extends FabricModelProvider {
     public TutorialModModelProvider(FabricDataOutput output) {
@@ -21,6 +22,34 @@ public class TutorialModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.EXAMPLE_NETHER_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.EXAMPLE_END_ORE);
         blockStateModelGenerator.registerFlowerPotPlant(BlockInit.EXAMPLE_FLOWER, BlockInit.EXAMPLE_FLOWER_POT, BlockStateModelGenerator.TintType.NOT_TINTED);
+    
+        blockStateModelGenerator.registerLog(BlockInit.EXAMPLE_LOG)
+                .log(BlockInit.EXAMPLE_LOG)
+                .wood(BlockInit.EXAMPLE_WOOD);
+
+        blockStateModelGenerator.registerLog(BlockInit.STRIPPED_EXAMPLE_LOG)
+                .log(BlockInit.STRIPPED_EXAMPLE_LOG)
+                .wood(BlockInit.STRIPPED_EXAMPLE_WOOD);
+        
+        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.EXAMPLE_LEAVES);
+        blockStateModelGenerator.registerTintableCross(BlockInit.EXAMPLE_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerHangingSign(BlockInit.STRIPPED_EXAMPLE_LOG, BlockInit.EXAMPLE_HANGING_SIGN, BlockInit.EXAMPLE_WALL_HANGING_SIGN);
+        
+        var exampleFamily = new BlockFamily.Builder(BlockInit.EXAMPLE_PLANKS)
+                .button(BlockInit.EXAMPLE_BUTTON)
+                .fence(BlockInit.EXAMPLE_FENCE)
+                .fenceGate(BlockInit.EXAMPLE_FENCE_GATE)
+                .pressurePlate(BlockInit.EXAMPLE_PRESSURE_PLATE)
+                .sign(BlockInit.EXAMPLE_SIGN, BlockInit.EXAMPLE_WALL_SIGN)
+                .slab(BlockInit.EXAMPLE_SLAB)
+                .stairs(BlockInit.EXAMPLE_STAIRS)
+                .door(BlockInit.EXAMPLE_DOOR)
+                .trapdoor(BlockInit.EXAMPLE_TRAPDOOR)
+                .group("wooden")
+                .unlockCriterionName("has_planks")
+                .build();
+        blockStateModelGenerator.registerCubeAllModelTexturePool(exampleFamily.getBaseBlock())
+                .family(exampleFamily);
     }
 
     @Override
@@ -36,5 +65,7 @@ public class TutorialModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ItemInit.EXAMPLE_CHESTPLATE, Models.GENERATED);
         itemModelGenerator.register(ItemInit.EXAMPLE_LEGGINGS, Models.GENERATED);
         itemModelGenerator.register(ItemInit.EXAMPLE_BOOTS, Models.GENERATED);
+        itemModelGenerator.register(ItemInit.EXAMPLE_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ItemInit.EXAMPLE_CHEST_BOAT, Models.GENERATED);
     }
 }

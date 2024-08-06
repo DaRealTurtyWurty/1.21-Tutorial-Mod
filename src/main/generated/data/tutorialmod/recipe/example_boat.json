@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "T": {
+      "item": "tutorialmod:example_planks"
+    }
+  },
+  "pattern": [
+    "T T",
+    "TTT"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tutorialmod:example_boat"
+  }
+}

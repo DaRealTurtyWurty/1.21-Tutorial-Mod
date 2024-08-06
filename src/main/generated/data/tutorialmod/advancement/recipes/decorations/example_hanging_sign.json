@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_c:chains": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:chains"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_example_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tutorialmod:example_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tutorialmod:example_hanging_sign"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_example_planks",
+      "has_c:chains"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tutorialmod:example_hanging_sign"
+    ]
+  }
+}

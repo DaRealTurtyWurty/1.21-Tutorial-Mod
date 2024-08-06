@@ -2,18 +2,22 @@ package dev.turtywurty.tutorialmod.data.provider;
 
 import dev.turtywurty.tutorialmod.init.BlockInit;
 import dev.turtywurty.tutorialmod.init.ItemInit;
+import dev.turtywurty.tutorialmod.list.TagList;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
+import net.minecraft.data.family.BlockFamily;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.RecipeProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.TagKey;
+import net.minecraft.resource.featuretoggle.FeatureSet;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -136,6 +140,119 @@ public class TutorialModRecipeProvider extends FabricRecipeProvider {
                 .pattern("E E")
                 .criterion(hasItem(ItemInit.EXAMPLE_ITEM), conditionsFromItem(ItemInit.EXAMPLE_ITEM))
                 .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.EXAMPLE_PLANKS, 4)
+                .input(Ingredient.fromTag(TagList.Items.EXAMPLE_LOGS))
+                .criterion(hasTag(TagList.Items.EXAMPLE_LOGS), conditionsFromTag(TagList.Items.EXAMPLE_LOGS))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.EXAMPLE_SLAB, 6)
+                .input('T', BlockInit.EXAMPLE_PLANKS)
+                .pattern("TTT")
+                .criterion(FabricRecipeProvider.hasItem(BlockInit.EXAMPLE_PLANKS), FabricRecipeProvider.conditionsFromItem(BlockInit.EXAMPLE_PLANKS))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.EXAMPLE_STAIRS, 4)
+                .input('T', BlockInit.EXAMPLE_PLANKS)
+                .pattern("T  ")
+                .pattern("TT ")
+                .pattern("TTT")
+                .criterion(FabricRecipeProvider.hasItem(BlockInit.EXAMPLE_PLANKS), FabricRecipeProvider.conditionsFromItem(BlockInit.EXAMPLE_PLANKS))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.EXAMPLE_FENCE, 3)
+                .input('T', BlockInit.EXAMPLE_PLANKS)
+                .input('S', ConventionalItemTags.WOODEN_RODS)
+                .pattern("TST")
+                .pattern("TST")
+                .criterion(FabricRecipeProvider.hasItem(BlockInit.EXAMPLE_PLANKS), FabricRecipeProvider.conditionsFromItem(BlockInit.EXAMPLE_PLANKS))
+                .criterion(hasTag(ConventionalItemTags.WOODEN_RODS), FabricRecipeProvider.conditionsFromTag(ConventionalItemTags.WOODEN_RODS))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.EXAMPLE_FENCE_GATE)
+                .input('T', BlockInit.EXAMPLE_PLANKS)
+                .input('S', ConventionalItemTags.WOODEN_RODS)
+                .pattern("STT")
+                .pattern("STT")
+                .criterion(FabricRecipeProvider.hasItem(BlockInit.EXAMPLE_PLANKS), FabricRecipeProvider.conditionsFromItem(BlockInit.EXAMPLE_PLANKS))
+                .criterion(hasTag(ConventionalItemTags.WOODEN_RODS), FabricRecipeProvider.conditionsFromTag(ConventionalItemTags.WOODEN_RODS))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.EXAMPLE_DOOR, 3)
+                .input('T', BlockInit.EXAMPLE_PLANKS)
+                .pattern("TT")
+                .pattern("TT")
+                .pattern("TT")
+                .criterion(FabricRecipeProvider.hasItem(BlockInit.EXAMPLE_PLANKS), FabricRecipeProvider.conditionsFromItem(BlockInit.EXAMPLE_PLANKS))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.EXAMPLE_TRAPDOOR, 2)
+                .input('T', BlockInit.EXAMPLE_PLANKS)
+                .pattern("TT")
+                .pattern("TT")
+                .criterion(FabricRecipeProvider.hasItem(BlockInit.EXAMPLE_PLANKS), FabricRecipeProvider.conditionsFromItem(BlockInit.EXAMPLE_PLANKS))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.REDSTONE, BlockInit.EXAMPLE_BUTTON)
+                .input(BlockInit.EXAMPLE_PLANKS)
+                .criterion(FabricRecipeProvider.hasItem(BlockInit.EXAMPLE_PLANKS), FabricRecipeProvider.conditionsFromItem(BlockInit.EXAMPLE_PLANKS))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, BlockInit.EXAMPLE_PRESSURE_PLATE)
+                .input('T', BlockInit.EXAMPLE_PLANKS)
+                .pattern("TT")
+                .criterion(FabricRecipeProvider.hasItem(BlockInit.EXAMPLE_PLANKS), FabricRecipeProvider.conditionsFromItem(BlockInit.EXAMPLE_PLANKS))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, ItemInit.EXAMPLE_SIGN, 3)
+                .input('T', BlockInit.EXAMPLE_PLANKS)
+                .input('S', ConventionalItemTags.WOODEN_RODS)
+                .pattern("TTT")
+                .pattern("TTT")
+                .pattern(" S ")
+                .criterion(FabricRecipeProvider.hasItem(BlockInit.EXAMPLE_PLANKS), FabricRecipeProvider.conditionsFromItem(BlockInit.EXAMPLE_PLANKS))
+                .criterion(hasTag(ConventionalItemTags.WOODEN_RODS), FabricRecipeProvider.conditionsFromTag(ConventionalItemTags.WOODEN_RODS))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, ItemInit.EXAMPLE_HANGING_SIGN, 6)
+                .input('T', BlockInit.EXAMPLE_PLANKS)
+                .input('C', ConventionalItemTags.CHAINS)
+                .pattern("C C")
+                .pattern("TTT")
+                .pattern("TTT")
+                .criterion(FabricRecipeProvider.hasItem(BlockInit.EXAMPLE_PLANKS), FabricRecipeProvider.conditionsFromItem(BlockInit.EXAMPLE_PLANKS))
+                .criterion(hasTag(ConventionalItemTags.CHAINS), FabricRecipeProvider.conditionsFromTag(ConventionalItemTags.CHAINS))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, ItemInit.EXAMPLE_BOAT)
+                .input('T', BlockInit.EXAMPLE_PLANKS)
+                .pattern("T T")
+                .pattern("TTT")
+                .criterion(FabricRecipeProvider.hasItem(BlockInit.EXAMPLE_PLANKS), FabricRecipeProvider.conditionsFromItem(BlockInit.EXAMPLE_PLANKS))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, ItemInit.EXAMPLE_CHEST_BOAT)
+                .input(ItemInit.EXAMPLE_BOAT)
+                .input(ConventionalItemTags.WOODEN_CHESTS)
+                .criterion(FabricRecipeProvider.hasItem(ItemInit.EXAMPLE_BOAT), FabricRecipeProvider.conditionsFromItem(ItemInit.EXAMPLE_BOAT))
+                .criterion(hasTag(ConventionalItemTags.WOODEN_CHESTS), FabricRecipeProvider.conditionsFromTag(ConventionalItemTags.WOODEN_CHESTS))
+                .offerTo(exporter);
+
+        var exampleFamily = new BlockFamily.Builder(BlockInit.EXAMPLE_PLANKS)
+                .button(BlockInit.EXAMPLE_BUTTON)
+                .fence(BlockInit.EXAMPLE_FENCE)
+                .fenceGate(BlockInit.EXAMPLE_FENCE_GATE)
+                .pressurePlate(BlockInit.EXAMPLE_PRESSURE_PLATE)
+                .sign(BlockInit.EXAMPLE_SIGN, BlockInit.EXAMPLE_WALL_SIGN)
+                .slab(BlockInit.EXAMPLE_SLAB)
+                .stairs(BlockInit.EXAMPLE_STAIRS)
+                .door(BlockInit.EXAMPLE_DOOR)
+                .trapdoor(BlockInit.EXAMPLE_TRAPDOOR)
+                .group("wooden")
+                .unlockCriterionName("has_planks")
+                .build();
+
+        generateFamily(exporter, exampleFamily, FeatureSet.empty());
     }
 
     private static @NotNull String hasTag(@NotNull TagKey<Item> tag) {

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "tag": "c:chains"
+    },
+    "T": {
+      "item": "tutorialmod:example_planks"
+    }
+  },
+  "pattern": [
+    "C C",
+    "TTT",
+    "TTT"
+  ],
+  "result": {
+    "count": 6,
+    "id": "tutorialmod:example_hanging_sign"
+  }
+}

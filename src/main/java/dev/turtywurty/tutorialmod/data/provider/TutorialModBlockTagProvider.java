@@ -42,5 +42,53 @@ public class TutorialModBlockTagProvider extends FabricTagProvider.BlockTagProvi
 
         getOrCreateTagBuilder(BlockTags.FLOWER_POTS)
                 .add(BlockInit.EXAMPLE_FLOWER_POT);
+        
+        getOrCreateTagBuilder(TagList.Blocks.EXAMPLE_LOGS)
+                .add(BlockInit.EXAMPLE_LOG)
+                .add(BlockInit.STRIPPED_EXAMPLE_LOG)
+                .add(BlockInit.EXAMPLE_WOOD)
+                .add(BlockInit.STRIPPED_EXAMPLE_WOOD);
+        
+        getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
+                .addTag(TagList.Blocks.EXAMPLE_LOGS);
+        
+        getOrCreateTagBuilder(BlockTags.LEAVES)
+                .add(BlockInit.EXAMPLE_LEAVES);
+
+        getOrCreateTagBuilder(BlockTags.SAPLINGS)
+                .add(BlockInit.EXAMPLE_SAPLING);
+
+        getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS)
+                .add(BlockInit.EXAMPLE_BUTTON);
+
+        getOrCreateTagBuilder(BlockTags.WOODEN_DOORS)
+                .add(BlockInit.EXAMPLE_DOOR);
+
+        getOrCreateTagBuilder(BlockTags.WOODEN_TRAPDOORS)
+                .add(BlockInit.EXAMPLE_TRAPDOOR);
+
+        getOrCreateTagBuilder(BlockTags.WOODEN_FENCES)
+                .add(BlockInit.EXAMPLE_FENCE);
+
+        getOrCreateTagBuilder(BlockTags.WOODEN_PRESSURE_PLATES)
+                .add(BlockInit.EXAMPLE_PRESSURE_PLATE);
+
+        getOrCreateTagBuilder(BlockTags.WOODEN_SLABS)
+                .add(BlockInit.EXAMPLE_SLAB);
+
+        getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS)
+                .add(BlockInit.EXAMPLE_STAIRS);
+
+        getOrCreateTagBuilder(BlockTags.STANDING_SIGNS)
+                .add(BlockInit.EXAMPLE_SIGN);
+
+        getOrCreateTagBuilder(BlockTags.WALL_SIGNS)
+                .add(BlockInit.EXAMPLE_WALL_SIGN);
+
+        getOrCreateTagBuilder(BlockTags.CEILING_HANGING_SIGNS)
+                .add(BlockInit.EXAMPLE_HANGING_SIGN);
+
+        getOrCreateTagBuilder(BlockTags.WALL_HANGING_SIGNS)
+                .add(BlockInit.EXAMPLE_WALL_HANGING_SIGN);
     }
 }

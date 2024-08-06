@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tutorialmod:example_planks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tutorialmod:example_logs": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#tutorialmod:example_logs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tutorialmod:example_logs"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tutorialmod:example_planks"
+    ]
+  }
+}
