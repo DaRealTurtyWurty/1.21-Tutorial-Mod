@@ -2,6 +2,7 @@ package dev.turtywurty.tutorialmod.data.provider;
 
 import dev.turtywurty.tutorialmod.TutorialMod;
 import dev.turtywurty.tutorialmod.init.BlockInit;
+import dev.turtywurty.tutorialmod.init.EnchantmentInit;
 import dev.turtywurty.tutorialmod.init.ItemGroupInit;
 import dev.turtywurty.tutorialmod.init.ItemInit;
 import dev.turtywurty.tutorialmod.list.TagList;
@@ -69,5 +70,7 @@ public class TutorialModEnglishLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add(ItemInit.EXAMPLE_BOAT, "Example Boat");
         translationBuilder.add(ItemInit.EXAMPLE_CHEST_BOAT, "Example Chest Boat");
         translationBuilder.add(TagList.Items.EXAMPLE_LOGS, "Example Logs");
+
+        translationBuilder.addEnchantment(EnchantmentInit.THUNDERING_KEY, "Thundering");
     }
 }

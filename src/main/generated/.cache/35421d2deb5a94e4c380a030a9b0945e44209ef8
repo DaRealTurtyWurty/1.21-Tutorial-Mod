@@ -1,4 +1,4 @@
-// 1.21	2024-08-06T17:05:02.6820043	Tutorial Mod/World Generator
+// 1.21	2024-08-13T15:50:47.7676829	Tutorial Mod/World Generator
 2b7be21c8ed59ae7f3f5d3cf5e38ed965694ea3c data\tutorialmod\worldgen\configured_feature\overworld_example_ore.json
 49a31939079c886ac4ded684ee7f1becce888606 data\tutorialmod\worldgen\placed_feature\overworld_example_ore.json
 ce60b3f1a694fac9ac9b71d62d6f9984ef82dc43 data\tutorialmod\worldgen\configured_feature\example_flower.json
@@ -7,5 +7,5 @@ b9a7540bd447b275335ee78fac1166084282c2f3 data\tutorialmod\worldgen\placed_featur
 46c8564640a08c996115114e219245c619f60c23 data\tutorialmod\worldgen\placed_feature\end_example_ore.json
 955fdfb3234ab5ef8a93b0d6ab122e75c6d65f08 data\tutorialmod\worldgen\placed_feature\example_flower_patch.json
 91a75448ee503c8a2f9809d7cda1fbb17f1118d7 data\tutorialmod\worldgen\placed_feature\nether_example_ore.json
-6e7e0a8bc3bd09e6833b74739fb3bafa0395337a data\tutorialmod\worldgen\configured_feature\nether_example_ore.json
 110ffce3fd7dfb3d7a35634486207b0fb895b4d0 data\tutorialmod\worldgen\configured_feature\example_flower_patch.json
+6e7e0a8bc3bd09e6833b74739fb3bafa0395337a data\tutorialmod\worldgen\configured_feature\nether_example_ore.json

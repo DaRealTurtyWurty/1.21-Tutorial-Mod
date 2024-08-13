@@ -1,4 +1,4 @@
-// 1.21	2024-08-06T17:05:02.6760039	Tutorial Mod/Recipes
+// 1.21	2024-08-13T15:50:47.7636817	Tutorial Mod/Recipes
 7cc5cca888b106f9bfc00ee06b33fcc79a9137a5 data\tutorialmod\recipe\example_item_from_smelting_example_nether_ore.json
 f8ad17ab24f09e74b208bbe7c74975aa4b367f55 data\tutorialmod\recipe\example_item_from_blasting_example_overworld_ore.json
 39ef537853fec7931ce2729c150e27bba0d21f46 data\tutorialmod\advancement\recipes\combat\example_helmet.json
@@ -20,8 +20,8 @@ b4da9ca309f543e4a9e84a9f1f2af11ae79322fa data\tutorialmod\advancement\recipes\de
 c80e02bd7ac1444637d2a028d49a1466ff3b924d data\tutorialmod\recipe\example_planks.json
 312193c31ac8f17ed9830a0444acb99a22d055d1 data\tutorialmod\recipe\example_helmet.json
 03206eefede9e1c6d289592a7beeabb3f1883f37 data\tutorialmod\advancement\recipes\combat\example_chestplate.json
-92b1d3f8539f361f9ef015cc12b32e848bb4c9d7 data\tutorialmod\advancement\recipes\misc\example_item.json
 12322da726ad1f3286abbaca6555e5d3abef7a5e data\tutorialmod\advancement\recipes\misc\example_item_from_smelting_example_nether_ore.json
+92b1d3f8539f361f9ef015cc12b32e848bb4c9d7 data\tutorialmod\advancement\recipes\misc\example_item.json
 178f91b4376c6cd3f9cb5680c0b9b27d204b9028 data\tutorialmod\advancement\recipes\combat\example_sword.json
 28d5ef85e16f40ce1e1630aa0505dedb24d0ff4f data\tutorialmod\recipe\example_item_from_blasting_example_deepslate_ore.json
 b534250e0f2474c2c8e0e6d0315e96e056267a4b data\tutorialmod\recipe\example_stairs.json

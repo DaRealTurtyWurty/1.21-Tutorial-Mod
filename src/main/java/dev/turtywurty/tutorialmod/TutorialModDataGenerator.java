@@ -1,5 +1,6 @@
 package dev.turtywurty.tutorialmod;
 
+import dev.turtywurty.tutorialmod.data.generator.TutorialModEnchantmentGenerator;
 import dev.turtywurty.tutorialmod.data.generator.TutorialModWorldGenerator;
 import dev.turtywurty.tutorialmod.data.provider.*;
 import dev.turtywurty.tutorialmod.init.worldgen.ConfiguredFeatureInit;
@@ -20,6 +21,7 @@ public class TutorialModDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(TutorialModItemTagProvider::new);
 		pack.addProvider(TutorialModWorldGenerator::new);
 		pack.addProvider(TutorialModRecipeProvider::new);
+		pack.addProvider(TutorialModEnchantmentGenerator::new);
 	}
 
 	@Override
