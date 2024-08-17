@@ -11,8 +11,13 @@ import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
+import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
+import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
+import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
+import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
 import java.util.List;
 
@@ -23,6 +28,8 @@ public class ConfiguredFeatureInit {
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> EXAMPLE_FLOWER_KEY = registerKey("example_flower");
     public static final RegistryKey<ConfiguredFeature<?, ?>> EXAMPLE_FLOWER_PATCH_KEY = registerKey("example_flower_patch");
+
+    public static final RegistryKey<ConfiguredFeature<?, ?>> EXAMPLE_TREE_KEY = registerKey("example_tree");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         RuleTest stoneOreReplaceables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
@@ -55,6 +62,16 @@ public class ConfiguredFeatureInit {
                         10,
                         4,
                         registryLookup.getOrThrow(PlacedFeatureInit.EXAMPLE_FLOWER_KEY)));
+
+        register(context, EXAMPLE_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                SimpleBlockStateProvider.of(BlockInit.EXAMPLE_LOG), // log
+                new StraightTrunkPlacer(4, 4, 6), // baseHeight, firstRandomHeight, secondRandomHeight
+
+                SimpleBlockStateProvider.of(BlockInit.EXAMPLE_LEAVES), // leaves
+                new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 2), // radius, offset, height
+
+                new TwoLayersFeatureSize(3, 0, 3) // limit, lowerSize, upperSize
+        ).build());
     }
 
     private static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {

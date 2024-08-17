@@ -1,6 +1,7 @@
 package dev.turtywurty.tutorialmod.init.worldgen;
 
 import dev.turtywurty.tutorialmod.TutorialMod;
+import dev.turtywurty.tutorialmod.init.BlockInit;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.registry.RegistryKey;
@@ -11,6 +12,7 @@ import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.PlacedFeatures;
+import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 import net.minecraft.world.gen.placementmodifier.*;
 
 import java.util.List;
@@ -22,6 +24,8 @@ public class PlacedFeatureInit {
 
     public static final RegistryKey<PlacedFeature> EXAMPLE_FLOWER_KEY = registerKey("example_flower");
     public static final RegistryKey<PlacedFeature> EXAMPLE_FLOWER_PATCH_KEY = registerKey("example_flower_patch");
+
+    public static final RegistryKey<PlacedFeature> EXAMPLE_TREE_KEY = registerKey("example_tree");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         RegistryEntryLookup<ConfiguredFeature<?, ?>> registryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -46,6 +50,11 @@ public class PlacedFeatureInit {
                         SquarePlacementModifier.of(),
                         PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
                         BiomePlacementModifier.of()));
+
+        register(context, EXAMPLE_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.EXAMPLE_TREE_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
+                        PlacedFeatures.createCountExtraModifier(1, 0.2f, 3),
+                        BlockInit.EXAMPLE_SAPLING));
     }
 
     private static RegistryKey<PlacedFeature> registerKey(String name) {

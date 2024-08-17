@@ -5,6 +5,7 @@ import com.terraformersmc.terraform.sign.api.block.TerraformSignBlock;
 import com.terraformersmc.terraform.sign.api.block.TerraformWallHangingSignBlock;
 import com.terraformersmc.terraform.sign.api.block.TerraformWallSignBlock;
 import dev.turtywurty.tutorialmod.TutorialMod;
+import dev.turtywurty.tutorialmod.init.worldgen.ConfiguredFeatureInit;
 import dev.turtywurty.tutorialmod.list.BlockSetTypeList;
 import dev.turtywurty.tutorialmod.list.WoodTypeList;
 import net.minecraft.block.*;
@@ -20,6 +21,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 import java.util.List;
+import java.util.Optional;
 
 public class BlockInit {
     public static final Block EXAMPLE_BLOCK = registerWithItem("example_block", new Block(AbstractBlock.Settings.create()
@@ -95,7 +97,16 @@ public class BlockInit {
 
     public static final SaplingBlock EXAMPLE_SAPLING = registerWithItem("example_sapling",
             new SaplingBlock(
-                    null,
+                    new SaplingGenerator(
+                            TutorialMod.id("example").toString(),
+                            0.1F,
+                            Optional.empty(),
+                            Optional.empty(),
+                            Optional.of(ConfiguredFeatureInit.EXAMPLE_TREE_KEY),
+                            Optional.empty(),
+                            Optional.empty(),
+                            Optional.empty()
+                    ),
                     AbstractBlock.Settings.create()
                             .mapColor(MapColor.DARK_GREEN)
                             .ticksRandomly()
