@@ -50,6 +50,8 @@ public class TutorialModModelProvider extends FabricModelProvider {
                 .build();
         blockStateModelGenerator.registerCubeAllModelTexturePool(exampleFamily.getBaseBlock())
                 .family(exampleFamily);
+
+        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.EXAMPLE_BE_BLOCK);
     }
 
     @Override

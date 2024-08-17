@@ -24,12 +24,16 @@ public class TutorialModBlockTagProvider extends FabricTagProvider.BlockTagProvi
                 .add(BlockInit.EXAMPLE_NETHER_ORE)
                 .add(BlockInit.EXAMPLE_END_ORE);
 
+        getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
+                .add(BlockInit.EXAMPLE_BE_BLOCK);
+
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(BlockInit.EXAMPLE_BLOCK)
                 .add(BlockInit.EXAMPLE_OVERWORLD_ORE)
                 .add(BlockInit.EXAMPLE_DEEPSLATE_ORE)
                 .add(BlockInit.EXAMPLE_NETHER_ORE)
-                .add(BlockInit.EXAMPLE_END_ORE);
+                .add(BlockInit.EXAMPLE_END_ORE)
+                .add(BlockInit.EXAMPLE_BE_BLOCK);
 
         getOrCreateTagBuilder(TagList.Blocks.EXAMPLE_TAG)
                 .add(BlockInit.EXAMPLE_BLOCK)

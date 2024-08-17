@@ -5,6 +5,7 @@ import com.terraformersmc.terraform.sign.api.block.TerraformSignBlock;
 import com.terraformersmc.terraform.sign.api.block.TerraformWallHangingSignBlock;
 import com.terraformersmc.terraform.sign.api.block.TerraformWallSignBlock;
 import dev.turtywurty.tutorialmod.TutorialMod;
+import dev.turtywurty.tutorialmod.block.ExampleBEBlock;
 import dev.turtywurty.tutorialmod.init.worldgen.ConfiguredFeatureInit;
 import dev.turtywurty.tutorialmod.list.BlockSetTypeList;
 import dev.turtywurty.tutorialmod.list.WoodTypeList;
@@ -232,6 +233,11 @@ public class BlockInit {
                             .noCollision()
                             .strength(1.0F)
                             .burnable()));
+
+    public static final ExampleBEBlock EXAMPLE_BE_BLOCK = registerWithItem("example_be_block", new ExampleBEBlock(
+            AbstractBlock.Settings.create()
+                    .strength(1.5F, 6.0F)
+                    .requiresTool()));
 
     public static <T extends Block> T register(String name, T block) {
         return Registry.register(Registries.BLOCK, TutorialMod.id(name), block);

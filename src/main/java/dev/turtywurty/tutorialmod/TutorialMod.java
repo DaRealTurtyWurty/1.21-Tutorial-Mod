@@ -27,6 +27,7 @@ public class TutorialMod implements ModInitializer {
 		ArmorMaterialInit.load();
 		BoatInit.load();
 		EnchantmentInit.load();
+		BlockEntityTypeInit.load();
 
 		// Event handling
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {

@@ -1,16 +1,17 @@
-// 1.21	2024-08-16T16:10:21.8411494	Tutorial Mod/Tags for minecraft:block
+// 1.21	2024-08-17T13:10:31.4723167	Tutorial Mod/Tags for minecraft:block
 0767afed15a8e77b55dd1eed5bd9bbd013c14feb data\minecraft\tags\block\wooden_trapdoors.json
 c4d402b6889a41bbccc53739ef8804af5bb6ae8d data\minecraft\tags\block\leaves.json
 b07e62fc74d90d02d82983a165987c5426c0c3a9 data\minecraft\tags\block\wooden_stairs.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\tutorialmod\tags\block\incorrect_for_example_tool.json
 6a60f26b0451bf1cdd5dd667dfc6c088b46cd2a6 data\minecraft\tags\block\flower_pots.json
-83f98d3873e272ae538f916cdb65538d9dfa371e data\minecraft\tags\block\mineable\pickaxe.json
+e50cd277844f71d0ea41d8f4a4d2ebdc81e06625 data\minecraft\tags\block\mineable\pickaxe.json
 c2dfca7bc936499be23ac4212b206edd87e0e1c2 data\minecraft\tags\block\wooden_buttons.json
 d34f55db6ccafd27540d5da4aee1f1d12117252e data\minecraft\tags\block\wooden_doors.json
 f4cefd20fd838b3d621ff059c00e9fe969e7e229 data\minecraft\tags\block\wooden_pressure_plates.json
 6db5fae30a211e6b16508d90ca0110428758fe18 data\minecraft\tags\block\wooden_fences.json
 9eb20319785a47621e624fce7588f0b59d529700 data\minecraft\tags\block\wall_signs.json
 d33233adbf84788dcf3a67acd2bbb8953e9e908c data\minecraft\tags\block\logs_that_burn.json
+a2edae16d571194108be44e3713f2039094091eb data\minecraft\tags\block\needs_stone_tool.json
 73ba5a32cb3cffd68dd9f5ece5f11f6c95458462 data\tutorialmod\tags\block\example_logs.json
 d55fd4e296a8530a6550355445a038b49f2290b3 data\tutorialmod\tags\block\example.json
 845125a7d2e7e742b7ed1286b7e481d3b0feb50d data\minecraft\tags\block\small_flowers.json
