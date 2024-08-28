@@ -74,5 +74,6 @@ public class TutorialModEnglishLanguageProvider extends FabricLanguageProvider {
         translationBuilder.addEnchantment(EnchantmentInit.THUNDERING_KEY, "Thundering");
 
         translationBuilder.add(BlockInit.EXAMPLE_BE_BLOCK, "Example BE Block");
+        translationBuilder.add(BlockInit.EXAMPLE_TICKING_BE_BLOCK, "Example Ticking BE Block");
     }
 }

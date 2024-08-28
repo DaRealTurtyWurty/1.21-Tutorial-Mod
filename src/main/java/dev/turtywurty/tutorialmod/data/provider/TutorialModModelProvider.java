@@ -52,6 +52,7 @@ public class TutorialModModelProvider extends FabricModelProvider {
                 .family(exampleFamily);
 
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.EXAMPLE_BE_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.EXAMPLE_TICKING_BE_BLOCK);
     }
 
     @Override

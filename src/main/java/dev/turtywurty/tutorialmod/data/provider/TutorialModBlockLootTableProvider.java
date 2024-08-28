@@ -44,5 +44,6 @@ public class TutorialModBlockLootTableProvider extends FabricBlockLootTableProvi
         addDrop(BlockInit.EXAMPLE_WALL_HANGING_SIGN, ItemInit.EXAMPLE_HANGING_SIGN);
 
         addDrop(BlockInit.EXAMPLE_BE_BLOCK);
+        addDrop(BlockInit.EXAMPLE_TICKING_BE_BLOCK);
     }
 }

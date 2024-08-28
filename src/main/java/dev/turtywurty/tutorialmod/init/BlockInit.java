@@ -6,6 +6,7 @@ import com.terraformersmc.terraform.sign.api.block.TerraformWallHangingSignBlock
 import com.terraformersmc.terraform.sign.api.block.TerraformWallSignBlock;
 import dev.turtywurty.tutorialmod.TutorialMod;
 import dev.turtywurty.tutorialmod.block.ExampleBEBlock;
+import dev.turtywurty.tutorialmod.block.ExampleTickingBEBlock;
 import dev.turtywurty.tutorialmod.init.worldgen.ConfiguredFeatureInit;
 import dev.turtywurty.tutorialmod.list.BlockSetTypeList;
 import dev.turtywurty.tutorialmod.list.WoodTypeList;
@@ -234,8 +235,13 @@ public class BlockInit {
                             .strength(1.0F)
                             .burnable()));
 
-    public static final ExampleBEBlock EXAMPLE_BE_BLOCK = registerWithItem("example_be_block", new ExampleBEBlock(
-            AbstractBlock.Settings.create()
+    public static final ExampleBEBlock EXAMPLE_BE_BLOCK = registerWithItem("example_be_block",
+            new ExampleBEBlock(AbstractBlock.Settings.create()
+                    .strength(1.5F, 6.0F)
+                    .requiresTool()));
+
+    public static final ExampleTickingBEBlock EXAMPLE_TICKING_BE_BLOCK = registerWithItem("example_ticking_be_block",
+            new ExampleTickingBEBlock(AbstractBlock.Settings.create()
                     .strength(1.5F, 6.0F)
                     .requiresTool()));
 

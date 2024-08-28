@@ -13,6 +13,7 @@ import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
@@ -253,6 +254,16 @@ public class TutorialModRecipeProvider extends FabricRecipeProvider {
                 .build();
 
         generateFamily(exporter, exampleFamily, FeatureSet.empty());
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.EXAMPLE_TICKING_BE_BLOCK)
+                .input('E', ItemInit.EXAMPLE_ITEM)
+                .input('D', Items.DIAMOND_PICKAXE)
+                .pattern("EEE")
+                .pattern("EDE")
+                .pattern("EEE")
+                .criterion(hasItem(ItemInit.EXAMPLE_ITEM), conditionsFromItem(ItemInit.EXAMPLE_ITEM))
+                .criterion(hasItem(Items.DIAMOND_PICKAXE), conditionsFromItem(Items.DIAMOND_PICKAXE))
+                .offerTo(exporter);
     }
 
     private static @NotNull String hasTag(@NotNull TagKey<Item> tag) {
