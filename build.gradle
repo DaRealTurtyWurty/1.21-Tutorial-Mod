@@ -48,6 +48,7 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	modImplementation "com.terraformersmc.terraform-api:terraform-wood-api-v1:${project.terraform_wood_api_version}"
+	include modApi("teamreborn:energy:${project.energy_version}")
 }
 
 processResources {

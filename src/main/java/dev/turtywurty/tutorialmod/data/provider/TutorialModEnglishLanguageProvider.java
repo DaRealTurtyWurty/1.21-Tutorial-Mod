@@ -75,5 +75,7 @@ public class TutorialModEnglishLanguageProvider extends FabricLanguageProvider {
 
         translationBuilder.add(BlockInit.EXAMPLE_BE_BLOCK, "Example BE Block");
         translationBuilder.add(BlockInit.EXAMPLE_TICKING_BE_BLOCK, "Example Ticking BE Block");
+        translationBuilder.add(BlockInit.EXAMPLE_ENERGY_GENERATOR_BLOCK, "Example Energy Generator Block");
+        translationBuilder.add(BlockInit.EXAMPLE_ENERGY_STORAGE_BLOCK, "Example Energy Storage Block");
     }
 }

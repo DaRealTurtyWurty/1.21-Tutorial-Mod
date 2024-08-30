@@ -53,6 +53,8 @@ public class TutorialModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.EXAMPLE_BE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.EXAMPLE_TICKING_BE_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.EXAMPLE_ENERGY_GENERATOR_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.EXAMPLE_ENERGY_STORAGE_BLOCK);
     }
 
     @Override
