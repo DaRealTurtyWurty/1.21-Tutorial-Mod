@@ -1,6 +1,7 @@
 package dev.turtywurty.tutorialmod.data.provider;
 
 import dev.turtywurty.tutorialmod.TutorialMod;
+import dev.turtywurty.tutorialmod.block.entity.ExampleEnergyGeneratorBlockEntity;
 import dev.turtywurty.tutorialmod.init.BlockInit;
 import dev.turtywurty.tutorialmod.init.EnchantmentInit;
 import dev.turtywurty.tutorialmod.init.ItemGroupInit;
@@ -77,5 +78,6 @@ public class TutorialModEnglishLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add(BlockInit.EXAMPLE_TICKING_BE_BLOCK, "Example Ticking BE Block");
         translationBuilder.add(BlockInit.EXAMPLE_ENERGY_GENERATOR_BLOCK, "Example Energy Generator Block");
         translationBuilder.add(BlockInit.EXAMPLE_ENERGY_STORAGE_BLOCK, "Example Energy Storage Block");
+        addText(translationBuilder, ExampleEnergyGeneratorBlockEntity.TITLE, "Example Energy Generator");
     }
 }

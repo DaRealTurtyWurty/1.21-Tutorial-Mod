@@ -1,4 +1,4 @@
-// 1.21	2024-08-30T16:40:40.4715365	Tutorial Mod/Block Loot Tables
+// 1.21	2024-09-03T14:09:37.5067923	Tutorial Mod/Block Loot Tables
 ce1d936e8b634abb5ea38c6be0db0278b312a014 data\tutorialmod\loot_table\blocks\example_flower.json
 b34fc77830a41412decb9671884ad2b72fd58b30 data\tutorialmod\loot_table\blocks\example_sign.json
 32e8e6305bccfa0c5b5af622e2790cbb70f724ac data\tutorialmod\loot_table\blocks\example_fence.json
@@ -13,8 +13,8 @@ d8eb905dc19d24d27119088a070cac47b055797c data\tutorialmod\loot_table\blocks\exam
 2b2a4bde1a1c86393b28fa3ff9b81ef1ddeed22d data\tutorialmod\loot_table\blocks\stripped_example_wood.json
 6f6ce09bc141c7a72722bd00b8733e10907b7b67 data\tutorialmod\loot_table\blocks\example_wall_hanging_sign.json
 bb95bc3c7ef66b2ace24193d3854031ee2bfdff7 data\tutorialmod\loot_table\blocks\example_block.json
-77fdf599ed9264de56455a46c1cf1ccffba162fe data\tutorialmod\loot_table\blocks\example_log.json
 b1643eea305659da95178a2cf7d4296578dc5595 data\tutorialmod\loot_table\blocks\example_be_block.json
+77fdf599ed9264de56455a46c1cf1ccffba162fe data\tutorialmod\loot_table\blocks\example_log.json
 f5b380e8acb67986d2179dd8530c91cea353c0c3 data\tutorialmod\loot_table\blocks\example_slab.json
 7ce04b11aa5ccef90560af8be1d103cff79d64ac data\tutorialmod\loot_table\blocks\example_pressure_plate.json
 b93f7c9e75e315d31ccc9697ea576dacd141a050 data\tutorialmod\loot_table\blocks\example_sapling.json

@@ -26,7 +26,7 @@ public class ExampleEnergyGeneratorBlock extends Block implements BlockEntityPro
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if(!world.isClient) {
             if(world.getBlockEntity(pos) instanceof ExampleEnergyGeneratorBlockEntity energyGenerator) {
-                player.sendMessage(Text.literal("Energy: " + energyGenerator.getEnergyStorage().getAmount()), true);
+                player.openHandledScreen(energyGenerator);
             }
         }
 

@@ -3,8 +3,11 @@ package dev.turtywurty.tutorialmod;
 import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import dev.turtywurty.tutorialmod.init.BlockInit;
 import dev.turtywurty.tutorialmod.init.BoatInit;
+import dev.turtywurty.tutorialmod.init.ScreenHandlerTypeInit;
+import dev.turtywurty.tutorialmod.screen.ExampleEnergyGeneratorScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 
 public class TutorialModClient implements ClientModInitializer {
@@ -16,5 +19,8 @@ public class TutorialModClient implements ClientModInitializer {
 
 		// Model Layers
 		TerraformBoatClientHelper.registerModelLayers(BoatInit.EXAMPLE_BOAT_ID, false);
+
+		// Bind Screens to Handlers
+		HandledScreens.register(ScreenHandlerTypeInit.EXAMPLE_ENERGY_GENERATOR, ExampleEnergyGeneratorScreen::new);
 	}
 }
