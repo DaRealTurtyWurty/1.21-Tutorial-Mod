@@ -1,5 +1,6 @@
 {
   "values": [
-    "tutorialmod:example_be_block"
+    "tutorialmod:example_be_block",
+    "tutorialmod:example_inventory_block"
   ]
 }

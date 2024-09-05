@@ -2,10 +2,13 @@ package dev.turtywurty.tutorialmod;
 
 import dev.turtywurty.tutorialmod.block.entity.ExampleEnergyGeneratorBlockEntity;
 import dev.turtywurty.tutorialmod.block.entity.ExampleEnergyStorageBlockEntity;
+import dev.turtywurty.tutorialmod.block.entity.ExampleInventoryBlockEntity;
 import dev.turtywurty.tutorialmod.init.*;
 import dev.turtywurty.tutorialmod.init.worldgen.BiomeModificationInit;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.transfer.v1.item.InventoryStorage;
+import net.fabricmc.fabric.api.transfer.v1.item.ItemStorage;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
@@ -39,6 +42,7 @@ public class TutorialMod implements ModInitializer {
 
         EnergyStorage.SIDED.registerForBlockEntity(ExampleEnergyGeneratorBlockEntity::getEnergyProvider, BlockEntityTypeInit.EXAMPLE_ENERGY_GENERATOR);
         EnergyStorage.SIDED.registerForBlockEntity(ExampleEnergyStorageBlockEntity::getEnergyProvider, BlockEntityTypeInit.EXAMPLE_ENERGY_STORAGE);
+        ItemStorage.SIDED.registerForBlockEntity(ExampleInventoryBlockEntity::getInventoryProvider, BlockEntityTypeInit.EXAMPLE_INVENTORY_BLOCK_ENTITY);
 
         LOGGER.info("Loaded!");
     }

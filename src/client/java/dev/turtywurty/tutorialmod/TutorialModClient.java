@@ -5,6 +5,7 @@ import dev.turtywurty.tutorialmod.init.BlockInit;
 import dev.turtywurty.tutorialmod.init.BoatInit;
 import dev.turtywurty.tutorialmod.init.ScreenHandlerTypeInit;
 import dev.turtywurty.tutorialmod.screen.ExampleEnergyGeneratorScreen;
+import dev.turtywurty.tutorialmod.screen.ExampleInventoryBlockScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
@@ -22,5 +23,6 @@ public class TutorialModClient implements ClientModInitializer {
 
 		// Bind Screens to Handlers
 		HandledScreens.register(ScreenHandlerTypeInit.EXAMPLE_ENERGY_GENERATOR, ExampleEnergyGeneratorScreen::new);
+		HandledScreens.register(ScreenHandlerTypeInit.EXAMPLE_INVENTORY_SCREEN_HANDLER, ExampleInventoryBlockScreen::new);
 	}
 }

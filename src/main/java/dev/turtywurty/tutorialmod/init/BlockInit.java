@@ -5,10 +5,7 @@ import com.terraformersmc.terraform.sign.api.block.TerraformSignBlock;
 import com.terraformersmc.terraform.sign.api.block.TerraformWallHangingSignBlock;
 import com.terraformersmc.terraform.sign.api.block.TerraformWallSignBlock;
 import dev.turtywurty.tutorialmod.TutorialMod;
-import dev.turtywurty.tutorialmod.block.ExampleBEBlock;
-import dev.turtywurty.tutorialmod.block.ExampleEnergyGeneratorBlock;
-import dev.turtywurty.tutorialmod.block.ExampleEnergyStorageBlock;
-import dev.turtywurty.tutorialmod.block.ExampleTickingBEBlock;
+import dev.turtywurty.tutorialmod.block.*;
 import dev.turtywurty.tutorialmod.init.worldgen.ConfiguredFeatureInit;
 import dev.turtywurty.tutorialmod.list.BlockSetTypeList;
 import dev.turtywurty.tutorialmod.list.WoodTypeList;
@@ -254,6 +251,11 @@ public class BlockInit {
 
     public static final ExampleEnergyStorageBlock EXAMPLE_ENERGY_STORAGE_BLOCK = registerWithItem("example_energy_storage_block",
             new ExampleEnergyStorageBlock(AbstractBlock.Settings.create()
+                    .strength(1.5F, 6.0F)
+                    .requiresTool()));
+
+    public static final ExampleInventoryBlock EXAMPLE_INVENTORY_BLOCK = registerWithItem("example_inventory_block",
+            new ExampleInventoryBlock(AbstractBlock.Settings.create()
                     .strength(1.5F, 6.0F)
                     .requiresTool()));
 

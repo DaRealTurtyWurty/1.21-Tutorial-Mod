@@ -25,7 +25,8 @@ public class TutorialModBlockTagProvider extends FabricTagProvider.BlockTagProvi
                 .add(BlockInit.EXAMPLE_END_ORE);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
-                .add(BlockInit.EXAMPLE_BE_BLOCK);
+                .add(BlockInit.EXAMPLE_BE_BLOCK)
+                .add(BlockInit.EXAMPLE_INVENTORY_BLOCK);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(BlockInit.EXAMPLE_TICKING_BE_BLOCK)
@@ -41,7 +42,8 @@ public class TutorialModBlockTagProvider extends FabricTagProvider.BlockTagProvi
                 .add(BlockInit.EXAMPLE_BE_BLOCK)
                 .add(BlockInit.EXAMPLE_TICKING_BE_BLOCK)
                 .add(BlockInit.EXAMPLE_ENERGY_STORAGE_BLOCK)
-                .add(BlockInit.EXAMPLE_ENERGY_GENERATOR_BLOCK);
+                .add(BlockInit.EXAMPLE_ENERGY_GENERATOR_BLOCK)
+                .add(BlockInit.EXAMPLE_INVENTORY_BLOCK);
 
         getOrCreateTagBuilder(TagList.Blocks.EXAMPLE_TAG)
                 .add(BlockInit.EXAMPLE_BLOCK)

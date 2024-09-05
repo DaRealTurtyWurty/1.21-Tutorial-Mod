@@ -8,6 +8,7 @@
     "tutorialmod:example_be_block",
     "tutorialmod:example_ticking_be_block",
     "tutorialmod:example_energy_storage_block",
-    "tutorialmod:example_energy_generator_block"
+    "tutorialmod:example_energy_generator_block",
+    "tutorialmod:example_inventory_block"
   ]
 }
