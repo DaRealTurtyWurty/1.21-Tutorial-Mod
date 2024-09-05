@@ -14,8 +14,6 @@ public class ExampleEnergyGeneratorScreen extends HandledScreen<ExampleEnergyGen
 
     public ExampleEnergyGeneratorScreen(ExampleEnergyGeneratorScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
-        this.backgroundWidth = 170;
-        this.backgroundHeight = 200;
     }
 
     @Override
