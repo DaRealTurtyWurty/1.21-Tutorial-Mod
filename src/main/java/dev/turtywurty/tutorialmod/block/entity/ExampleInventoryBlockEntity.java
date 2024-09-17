@@ -14,6 +14,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
@@ -34,9 +35,26 @@ public class ExampleInventoryBlockEntity extends BlockEntity implements Extended
             super.markDirty();
             update();
         }
+
+        @Override
+        public void onOpen(PlayerEntity player) {
+            super.onOpen(player);
+            ExampleInventoryBlockEntity.this.numPlayersOpen++;
+            update();
+        }
+
+        @Override
+        public void onClose(PlayerEntity player) {
+            super.onClose(player);
+            ExampleInventoryBlockEntity.this.numPlayersOpen--;
+            update();
+        }
     };
 
     private final InventoryStorage inventoryStorage = InventoryStorage.of(inventory, null);
+
+    private int numPlayersOpen;
+    public float lidAngle;
 
     public ExampleInventoryBlockEntity(BlockPos pos, BlockState state) {
         super(BlockEntityTypeInit.EXAMPLE_INVENTORY_BLOCK_ENTITY, pos, state);
@@ -62,6 +80,10 @@ public class ExampleInventoryBlockEntity extends BlockEntity implements Extended
     protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         super.readNbt(nbt, registryLookup);
         Inventories.readNbt(nbt, this.inventory.getHeldStacks(), registryLookup);
+
+        if(nbt.contains("NumPlayersOpen", NbtElement.INT_TYPE)) {
+            this.numPlayersOpen = nbt.getInt("NumPlayersOpen");
+        }
     }
 
     @Override
@@ -80,6 +102,7 @@ public class ExampleInventoryBlockEntity extends BlockEntity implements Extended
     public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registryLookup) {
         var nbt = super.toInitialChunkDataNbt(registryLookup);
         writeNbt(nbt, registryLookup);
+        nbt.putInt("NumPlayersOpen", this.numPlayersOpen);
         return nbt;
     }
 
@@ -95,5 +118,9 @@ public class ExampleInventoryBlockEntity extends BlockEntity implements Extended
 
     public SimpleInventory getInventory() {
         return this.inventory;
+    }
+
+    public int getNumPlayersOpen() {
+        return this.numPlayersOpen;
     }
 }
