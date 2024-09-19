@@ -8,15 +8,38 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
+import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.util.math.Direction;
+import net.minecraft.inventory.SimpleInventory;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RotationAxis;
+import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class ExampleInventoryBER implements BlockEntityRenderer<ExampleInventoryBlockEntity> {
+    private static final List<ItemTransformation> TRANSFORMATIONS = new ArrayList<>();
+
+    static {
+        Random random = ThreadLocalRandom.current();
+        for (int index = 0; index < 36; index++) {
+            TRANSFORMATIONS.add(new ItemTransformation(
+                    (random.nextDouble() - 0.5d) * 0.4375D,
+                    (random.nextDouble() - 0.5d) * 0.4375D,
+                    random.nextInt(360))
+            );
+        }
+    }
+
+    private final BlockEntityRendererFactory.Context context;
     private final ExampleChestModel model;
 
     public ExampleInventoryBER(BlockEntityRendererFactory.Context context) {
+        this.context = context;
         this.model = new ExampleChestModel(context.getLayerModelPart(ExampleChestModel.LAYER_LOCATION));
     }
 
@@ -48,10 +71,36 @@ public class ExampleInventoryBER implements BlockEntityRenderer<ExampleInventory
             default -> 0;
         }));
 
+        if(entity.lidAngle > 0.1D) {
+            SimpleInventory inventory = entity.getInventory();
+            World world = entity.getWorld();
+
+            for (int index = 0; index < inventory.getHeldStacks().size(); index++) {
+                ItemStack stack = inventory.getStack(index);
+                if(stack.isEmpty()) continue;
+
+                ItemTransformation transformation = TRANSFORMATIONS.get(index);
+
+                matrices.push();
+                matrices.translate(transformation.x(), 0.5D, transformation.z());
+                matrices.scale(0.325f, 0.325f, 0.325f);
+                matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(transformation.rotation()));
+
+                this.context.getItemRenderer().renderItem(stack, ModelTransformationMode.FIXED,
+                        light, overlay,
+                        matrices, vertexConsumers,
+                        world, 0);
+
+                matrices.pop();
+            }
+        }
+
         this.model.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntitySolid(ExampleChestModel.TEXTURE_LOCATION)), light, overlay);
 
         lid.pitch = defaultLidAngle;
 
         matrices.pop();
     }
+
+    public record ItemTransformation(double x, double z, int rotation) {}
 }
