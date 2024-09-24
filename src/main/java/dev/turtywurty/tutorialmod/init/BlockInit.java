@@ -259,6 +259,11 @@ public class BlockInit {
                     .strength(1.5F, 6.0F)
                     .requiresTool()));
 
+    public static final ExampleFluidTankBlock EXAMPLE_FLUID_TANK = registerWithItem("example_fluid_tank",
+            new ExampleFluidTankBlock(AbstractBlock.Settings.create()
+                    .strength(1.0F, 4.0F)
+                    .requiresTool()));
+
     public static <T extends Block> T register(String name, T block) {
         return Registry.register(Registries.BLOCK, TutorialMod.id(name), block);
     }

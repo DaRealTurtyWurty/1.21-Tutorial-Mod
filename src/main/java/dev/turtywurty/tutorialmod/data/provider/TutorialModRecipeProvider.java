@@ -264,6 +264,18 @@ public class TutorialModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ItemInit.EXAMPLE_ITEM), conditionsFromItem(ItemInit.EXAMPLE_ITEM))
                 .criterion(hasItem(Items.DIAMOND_PICKAXE), conditionsFromItem(Items.DIAMOND_PICKAXE))
                 .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BlockInit.EXAMPLE_FLUID_TANK)
+                .input('G', ConventionalItemTags.GLASS_PANES)
+                .input('B', ConventionalItemTags.EMPTY_BUCKETS)
+                .input('I', ConventionalItemTags.IRON_INGOTS)
+                .pattern("III")
+                .pattern("GBG")
+                .pattern("III")
+                .criterion(hasTag(ConventionalItemTags.GLASS_PANES), conditionsFromTag(ConventionalItemTags.GLASS_PANES))
+                .criterion(hasTag(ConventionalItemTags.EMPTY_BUCKETS), conditionsFromTag(ConventionalItemTags.EMPTY_BUCKETS))
+                .criterion(hasTag(ConventionalItemTags.IRON_INGOTS), conditionsFromTag(ConventionalItemTags.IRON_INGOTS))
+                .offerTo(exporter);
     }
 
     private static @NotNull String hasTag(@NotNull TagKey<Item> tag) {

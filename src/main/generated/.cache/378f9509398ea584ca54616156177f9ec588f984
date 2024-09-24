@@ -1,4 +1,5 @@
-// 1.21	2024-09-05T16:20:55.8674349	Tutorial Mod/Block Loot Tables
+// 1.21	2024-09-24T15:34:19.4323756	Tutorial Mod/Block Loot Tables
+2b702c4edc0424994240119b16d60149726341c3 data\tutorialmod\loot_table\blocks\example_fluid_tank.json
 ce1d936e8b634abb5ea38c6be0db0278b312a014 data\tutorialmod\loot_table\blocks\example_flower.json
 b34fc77830a41412decb9671884ad2b72fd58b30 data\tutorialmod\loot_table\blocks\example_sign.json
 32e8e6305bccfa0c5b5af622e2790cbb70f724ac data\tutorialmod\loot_table\blocks\example_fence.json

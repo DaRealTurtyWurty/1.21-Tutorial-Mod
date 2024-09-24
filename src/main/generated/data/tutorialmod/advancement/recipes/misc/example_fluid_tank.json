@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_c:buckets/empty": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:buckets/empty"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_c:glass_panes": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:glass_panes"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_c:ingots/iron": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:ingots/iron"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tutorialmod:example_fluid_tank"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_c:glass_panes",
+      "has_c:buckets/empty",
+      "has_c:ingots/iron"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tutorialmod:example_fluid_tank"
+    ]
+  }
+}

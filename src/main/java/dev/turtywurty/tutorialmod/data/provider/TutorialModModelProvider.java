@@ -1,5 +1,6 @@
 package dev.turtywurty.tutorialmod.data.provider;
 
+import dev.turtywurty.tutorialmod.TutorialMod;
 import dev.turtywurty.tutorialmod.init.BlockInit;
 import dev.turtywurty.tutorialmod.init.ItemInit;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -55,6 +56,8 @@ public class TutorialModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.EXAMPLE_TICKING_BE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.EXAMPLE_ENERGY_GENERATOR_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.EXAMPLE_ENERGY_STORAGE_BLOCK);
+        blockStateModelGenerator.registerSimpleState(BlockInit.EXAMPLE_FLUID_TANK);
+        blockStateModelGenerator.registerParentedItemModel(BlockInit.EXAMPLE_FLUID_TANK, TutorialMod.id("block/example_fluid_tank"));
     }
 
     @Override

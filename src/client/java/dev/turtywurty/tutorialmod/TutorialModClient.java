@@ -6,8 +6,10 @@ import dev.turtywurty.tutorialmod.init.BlockInit;
 import dev.turtywurty.tutorialmod.init.BoatInit;
 import dev.turtywurty.tutorialmod.init.ScreenHandlerTypeInit;
 import dev.turtywurty.tutorialmod.model.ExampleChestModel;
+import dev.turtywurty.tutorialmod.renderer.ExampleFluidTankBER;
 import dev.turtywurty.tutorialmod.renderer.ExampleInventoryBER;
 import dev.turtywurty.tutorialmod.screen.ExampleEnergyGeneratorScreen;
+import dev.turtywurty.tutorialmod.screen.ExampleFluidTankScreen;
 import dev.turtywurty.tutorialmod.screen.ExampleInventoryBlockScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -21,7 +23,8 @@ public class TutorialModClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		// Block Render Layers
 		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), BlockInit.EXAMPLE_FLOWER, BlockInit.EXAMPLE_FLOWER_POT,
-				BlockInit.EXAMPLE_DOOR, BlockInit.EXAMPLE_SAPLING, BlockInit.EXAMPLE_LEAVES, BlockInit.EXAMPLE_TRAPDOOR);
+				BlockInit.EXAMPLE_DOOR, BlockInit.EXAMPLE_SAPLING, BlockInit.EXAMPLE_LEAVES, BlockInit.EXAMPLE_TRAPDOOR,
+				BlockInit.EXAMPLE_FLUID_TANK);
 
 		// Model Layers
 		TerraformBoatClientHelper.registerModelLayers(BoatInit.EXAMPLE_BOAT_ID, false);
@@ -30,8 +33,10 @@ public class TutorialModClient implements ClientModInitializer {
 		// Bind Screens to Handlers
 		HandledScreens.register(ScreenHandlerTypeInit.EXAMPLE_ENERGY_GENERATOR, ExampleEnergyGeneratorScreen::new);
 		HandledScreens.register(ScreenHandlerTypeInit.EXAMPLE_INVENTORY_SCREEN_HANDLER, ExampleInventoryBlockScreen::new);
+		HandledScreens.register(ScreenHandlerTypeInit.EXAMPLE_FLUID_TANK, ExampleFluidTankScreen::new);
 
 		// Block Entity Renderers
 		BlockEntityRendererFactories.register(BlockEntityTypeInit.EXAMPLE_INVENTORY_BLOCK_ENTITY, ExampleInventoryBER::new);
+		BlockEntityRendererFactories.register(BlockEntityTypeInit.EXAMPLE_FLUID_TANK, ExampleFluidTankBER::new);
 	}
 }

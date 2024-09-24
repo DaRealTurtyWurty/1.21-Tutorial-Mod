@@ -1,4 +1,4 @@
-// 1.21	2024-09-05T16:20:55.8679413	Tutorial Mod/Recipes
+// 1.21	2024-09-24T15:34:19.4333827	Tutorial Mod/Recipes
 7cc5cca888b106f9bfc00ee06b33fcc79a9137a5 data\tutorialmod\recipe\example_item_from_smelting_example_nether_ore.json
 f8ad17ab24f09e74b208bbe7c74975aa4b367f55 data\tutorialmod\recipe\example_item_from_blasting_example_overworld_ore.json
 39ef537853fec7931ce2729c150e27bba0d21f46 data\tutorialmod\advancement\recipes\combat\example_helmet.json
@@ -30,6 +30,7 @@ a0fdd0793fad5463ae56d0ea1842ddbb488c220b data\tutorialmod\advancement\recipes\de
 dfd97c9a2f7336b70e513ebd2b7c0c659c6ea2cc data\tutorialmod\advancement\recipes\misc\example_item_from_blasting_example_deepslate_ore.json
 5bf7f46feff93425bfb787547424180ba6181570 data\tutorialmod\advancement\recipes\tools\example_axe.json
 adbacb0cfdc0b107b3ebf66458ff2b50149ded33 data\tutorialmod\recipe\example_trapdoor.json
+0909e93465d6b8d704443591b737b1d4f5c84dfe data\tutorialmod\recipe\example_fluid_tank.json
 30d765357d2d4ad3475c4fdb538554e28a14a053 data\tutorialmod\advancement\recipes\building_blocks\example_block.json
 de96fcbc583c5da9054b8813a17531435903d0e3 data\tutorialmod\advancement\recipes\combat\example_leggings.json
 712ff60dfc80e09f63198d9b1d2dc5e1627dbe3c data\tutorialmod\advancement\recipes\misc\example_item_from_blasting_example_end_ore.json
@@ -40,6 +41,7 @@ f35b340810f3f6e54e8a38a4dc272d06564b3cdf data\tutorialmod\advancement\recipes\mi
 86aa0b74125c018ea88358f9865dbb8f7a55dbdf data\tutorialmod\advancement\recipes\building_blocks\example_stairs.json
 7d4685b9d229d1d22f69cfb2d234ca59e9c648f4 data\tutorialmod\advancement\recipes\tools\example_shovel.json
 1dd1154f50c877a1f8ff00aa4c160da6a9926252 data\tutorialmod\advancement\recipes\building_blocks\example_trapdoor.json
+27661400bfeb569e3c147b3aefc5bf02ade8f966 data\tutorialmod\advancement\recipes\misc\example_fluid_tank.json
 081fb8f7b71de4c2e3f72d0177496794b9609152 data\tutorialmod\recipe\example_door.json
 6a84b25c4d0ca37cbec14c808e6c37cc6c023c17 data\tutorialmod\recipe\example_pressure_plate.json
 4fb26c1a797457daa1c7a89c3473af2b07766cb1 data\tutorialmod\recipe\example_axe.json

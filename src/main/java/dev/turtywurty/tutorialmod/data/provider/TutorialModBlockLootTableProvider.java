@@ -4,6 +4,7 @@ import dev.turtywurty.tutorialmod.init.BlockInit;
 import dev.turtywurty.tutorialmod.init.ItemInit;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
@@ -48,5 +49,6 @@ public class TutorialModBlockLootTableProvider extends FabricBlockLootTableProvi
         addDrop(BlockInit.EXAMPLE_ENERGY_GENERATOR_BLOCK);
         addDrop(BlockInit.EXAMPLE_ENERGY_STORAGE_BLOCK);
         addDrop(BlockInit.EXAMPLE_INVENTORY_BLOCK);
+        addDrop(BlockInit.EXAMPLE_FLUID_TANK, block -> drops(block, Items.AIR));
     }
 }
