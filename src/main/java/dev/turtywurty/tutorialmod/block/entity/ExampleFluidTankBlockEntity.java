@@ -57,7 +57,7 @@ public class ExampleFluidTankBlockEntity extends BlockEntity implements Tickable
     private final ContainerItemContext fluidItemContext = ContainerItemContext.ofSingleSlot(this.inventoryStorage.getSlot(0));
 
     private final SingleFluidStorage fluidStorage = SingleFluidStorage.withFixedCapacity(
-            FluidConstants.BUCKET * 100,
+            FluidConstants.BUCKET * 10,
             this::update);
 
     public ExampleFluidTankBlockEntity(BlockPos pos, BlockState state) {
@@ -184,5 +184,9 @@ public class ExampleFluidTankBlockEntity extends BlockEntity implements Tickable
 
     public SimpleInventory getInventory() {
         return this.inventory;
+    }
+
+    public SingleFluidStorage getFluidTank() {
+        return this.fluidStorage;
     }
 }
