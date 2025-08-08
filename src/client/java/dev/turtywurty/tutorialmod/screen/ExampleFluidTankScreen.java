@@ -1,6 +1,7 @@
 package dev.turtywurty.tutorialmod.screen;
 
 import dev.turtywurty.tutorialmod.TutorialMod;
+import dev.turtywurty.tutorialmod.screen.widget.FluidWidget;
 import dev.turtywurty.tutorialmod.screenhandler.ExampleFluidTankScreenHandler;
 import dev.turtywurty.tutorialmod.screenhandler.ExampleInventoryScreenHandler;
 import net.minecraft.client.gui.DrawContext;
@@ -19,17 +20,23 @@ public class ExampleFluidTankScreen extends HandledScreen<ExampleFluidTankScreen
     }
 
     @Override
+    protected void init() {
+        super.init();
+
+        addDrawable(FluidWidget.builder(this.handler.getBlockEntity().getFluidTank())
+                .bounds(this.x + 140, this.y + 9, 25, 70)
+                .posSupplier(() -> this.handler.getBlockEntity().getPos())
+                .build());
+    }
+
+    @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
         context.drawTexture(TEXTURE, this.x, this.y, 0, 0, this.backgroundWidth, this.backgroundHeight);
-
-        // TODO: Draw fluid tank
     }
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         super.render(context, mouseX, mouseY, delta);
         drawMouseoverTooltip(context, mouseX, mouseY);
-
-        // TODO: Draw fluid tooltip
     }
 }

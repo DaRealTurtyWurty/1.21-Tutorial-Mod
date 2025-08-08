@@ -31,6 +31,8 @@ loom {
 		}
 	}
 
+	accessWidenerPath = file("src/main/resources/${project.archives_base_name}.accesswidener")
+
 	runs {
 		datagen {
 			inherit client

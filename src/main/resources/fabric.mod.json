@@ -25,6 +25,7 @@
 			"dev.turtywurty.tutorialmod.TutorialModDataGenerator"
 		]
 	},
+	"accessWidener": "tutorialmod.accesswidener",
 	"mixins": [
 		"tutorialmod.mixins.json",
 		{
