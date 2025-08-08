@@ -36,7 +36,7 @@ public class ExampleFluidTankBER implements BlockEntityRenderer<ExampleFluidTank
 
         int color = FluidVariantRendering.getColor(fluidVariant, entity.getWorld(), entity.getPos());
         Sprite sprite = FluidVariantRendering.getSprites(fluidVariant)[0];
-        RenderLayer renderLayer = RenderLayer.getEntityTranslucent(sprite.getAtlasId());
+        RenderLayer renderLayer = RenderLayers.getFluidLayer(fluidVariant.getFluid().getDefaultState());
         VertexConsumer vertexConsumer = vertexConsumers.getBuffer(renderLayer);
 
         float y1 = 1f / 16f;
@@ -53,10 +53,10 @@ public class ExampleFluidTankBER implements BlockEntityRenderer<ExampleFluidTank
         drawQuad(vertexConsumer, entry, 5f / 16f, y1, 5.001f / 16f, 11f / 16f, y2, 5.001f / 16f, minU, minV, maxU, maxV, color, light, overlay);
 
         // back face
-        drawQuad(vertexConsumer, entry, 5f / 16f, y1, 10.999f / 16f, 11f / 16f, y2, 10.999f / 16f, minU, minV, maxU, maxV, color, light, overlay);
+        drawQuad(vertexConsumer, entry, 11f / 16f, y1, 10.999f / 16f, 5f / 16f, y2, 10.999f / 16f, minU, minV, maxU, maxV, color, light, overlay);
 
         // left face
-        drawQuad(vertexConsumer, entry, 5.001f / 16f, y1, 5f / 16f, 5.001f / 16f, y2, 11f / 16f, minU, minV, maxU, maxV, color, light, overlay);
+        drawQuad(vertexConsumer, entry, 5.001f / 16f, y1, 11f / 16f, 5.001f / 16f, y2, 5f / 16f, minU, minV, maxU, maxV, color, light, overlay);
 
         // right face
         drawQuad(vertexConsumer, entry, 10.999f / 16f, y1, 5f / 16f, 10.999f / 16f, y2, 11f / 16f, minU, minV, maxU, maxV, color, light, overlay);
