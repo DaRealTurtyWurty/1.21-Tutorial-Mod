@@ -32,6 +32,10 @@ public class BlockEntityTypeInit {
             BlockEntityType.Builder.create(ExampleFluidTankBlockEntity::new, BlockInit.EXAMPLE_FLUID_TANK)
                     .build());
 
+    public static final BlockEntityType<ExampleRecipeBlockEntity> EXAMPLE_RECIPE_BLOCK_ENTITY = register("example_recipe_block_entity",
+            BlockEntityType.Builder.create(ExampleRecipeBlockEntity::new, BlockInit.EXAMPLE_RECIPE_BLOCK)
+                    .build());
+
     public static <T extends BlockEntity> BlockEntityType<T> register(String name, BlockEntityType<T> type) {
         return Registry.register(Registries.BLOCK_ENTITY_TYPE, TutorialMod.id(name), type);
     }

@@ -4,6 +4,7 @@ import dev.turtywurty.tutorialmod.TutorialMod;
 import dev.turtywurty.tutorialmod.block.entity.ExampleEnergyGeneratorBlockEntity;
 import dev.turtywurty.tutorialmod.block.entity.ExampleFluidTankBlockEntity;
 import dev.turtywurty.tutorialmod.block.entity.ExampleInventoryBlockEntity;
+import dev.turtywurty.tutorialmod.block.entity.ExampleRecipeBlockEntity;
 import dev.turtywurty.tutorialmod.init.BlockInit;
 import dev.turtywurty.tutorialmod.init.EnchantmentInit;
 import dev.turtywurty.tutorialmod.init.ItemGroupInit;
@@ -85,5 +86,7 @@ public class TutorialModEnglishLanguageProvider extends FabricLanguageProvider {
         addText(translationBuilder, ExampleInventoryBlockEntity.TITLE, "Example Inventory Block");
         translationBuilder.add(BlockInit.EXAMPLE_FLUID_TANK, "Example Fluid Tank");
         addText(translationBuilder, ExampleFluidTankBlockEntity.TITLE, "Example Fluid Tank");
+        translationBuilder.add(BlockInit.EXAMPLE_RECIPE_BLOCK, "Example Recipe Block");
+        addText(translationBuilder, ExampleRecipeBlockEntity.TITLE, "Example Recipe Block");
     }
 }

@@ -50,5 +50,6 @@ public class TutorialModBlockLootTableProvider extends FabricBlockLootTableProvi
         addDrop(BlockInit.EXAMPLE_ENERGY_STORAGE_BLOCK);
         addDrop(BlockInit.EXAMPLE_INVENTORY_BLOCK);
         addDrop(BlockInit.EXAMPLE_FLUID_TANK, block -> drops(block, Items.AIR));
+        addDrop(BlockInit.EXAMPLE_RECIPE_BLOCK);
     }
 }

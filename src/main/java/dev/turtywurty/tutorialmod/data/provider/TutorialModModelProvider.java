@@ -58,6 +58,7 @@ public class TutorialModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.EXAMPLE_ENERGY_STORAGE_BLOCK);
         blockStateModelGenerator.registerSimpleState(BlockInit.EXAMPLE_FLUID_TANK);
         blockStateModelGenerator.registerParentedItemModel(BlockInit.EXAMPLE_FLUID_TANK, TutorialMod.id("block/example_fluid_tank"));
+        blockStateModelGenerator.registerSimpleState(BlockInit.EXAMPLE_RECIPE_BLOCK);
     }
 
     @Override

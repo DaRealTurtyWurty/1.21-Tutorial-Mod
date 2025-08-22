@@ -1,9 +1,6 @@
 package dev.turtywurty.tutorialmod;
 
-import dev.turtywurty.tutorialmod.block.entity.ExampleEnergyGeneratorBlockEntity;
-import dev.turtywurty.tutorialmod.block.entity.ExampleEnergyStorageBlockEntity;
-import dev.turtywurty.tutorialmod.block.entity.ExampleFluidTankBlockEntity;
-import dev.turtywurty.tutorialmod.block.entity.ExampleInventoryBlockEntity;
+import dev.turtywurty.tutorialmod.block.entity.*;
 import dev.turtywurty.tutorialmod.init.*;
 import dev.turtywurty.tutorialmod.init.worldgen.BiomeModificationInit;
 import net.fabricmc.api.ModInitializer;
@@ -47,6 +44,8 @@ public class TutorialMod implements ModInitializer {
         ItemStorage.SIDED.registerForBlockEntity(ExampleInventoryBlockEntity::getInventoryProvider, BlockEntityTypeInit.EXAMPLE_INVENTORY_BLOCK_ENTITY);
         ItemStorage.SIDED.registerForBlockEntity(ExampleFluidTankBlockEntity::getInventoryProvider, BlockEntityTypeInit.EXAMPLE_FLUID_TANK);
         FluidStorage.SIDED.registerForBlockEntity(ExampleFluidTankBlockEntity::getFluidTankProvider, BlockEntityTypeInit.EXAMPLE_FLUID_TANK);
+        ItemStorage.SIDED.registerForBlockEntity(ExampleRecipeBlockEntity::getInventoryProvider, BlockEntityTypeInit.EXAMPLE_RECIPE_BLOCK_ENTITY);
+        EnergyStorage.SIDED.registerForBlockEntity(ExampleRecipeBlockEntity::getEnergyProvider, BlockEntityTypeInit.EXAMPLE_RECIPE_BLOCK_ENTITY);
 
         LOGGER.info("Loaded!");
     }

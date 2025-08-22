@@ -264,6 +264,11 @@ public class BlockInit {
                     .strength(1.0F, 4.0F)
                     .requiresTool()));
 
+    public static final ExampleRecipeBlock EXAMPLE_RECIPE_BLOCK = registerWithItem("example_recipe_block",
+            new ExampleRecipeBlock(AbstractBlock.Settings.create()
+                    .strength(1.5F, 6.0F)
+                    .requiresTool()));
+
     public static <T extends Block> T register(String name, T block) {
         return Registry.register(Registries.BLOCK, TutorialMod.id(name), block);
     }
