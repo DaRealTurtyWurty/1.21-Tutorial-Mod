@@ -22,7 +22,7 @@ public class ExampleRecipeScreen extends HandledScreen<ExampleRecipeScreenHandle
         context.drawTexture(TEXTURE, this.x, this.y, 0, 0, this.backgroundWidth, this.backgroundHeight);
 
         int progressSize = MathHelper.ceil(this.handler.getProgressScaled(24));
-        context.drawTexture(TEXTURE, this.x + 79, this.y + 34, 176, 0, progressSize + 1, 16);
+        context.drawTexture(TEXTURE, this.x + 74, this.y + 34, 176, 0, progressSize + 1, 16);
 
         int energyBarSize = MathHelper.ceil(this.handler.getEnergyPercent() * 66);
         context.fill(this.x + 144, this.y + 10 + 66 - energyBarSize, this.x + 144 + 20, this.y + 10 + 66, 0xFFD4AF37);

@@ -1,0 +1,17 @@
+{
+  "type": "tutorialmod:example_recipe",
+  "energy_cost": 10,
+  "ingredients": [
+    {
+      "item": "minecraft:nether_star"
+    },
+    {
+      "tag": "minecraft:gold_ores"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "tutorialmod:example_food"
+  },
+  "process_time": 200
+}

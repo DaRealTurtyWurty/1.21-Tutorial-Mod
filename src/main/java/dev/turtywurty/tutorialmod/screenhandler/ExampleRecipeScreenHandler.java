@@ -53,21 +53,21 @@ public class ExampleRecipeScreenHandler extends ScreenHandler {
     private void addPlayerInventory(PlayerInventory playerInv) {
         for (int row = 0; row < 3; row++) {
             for (int column = 0; column < 9; column++) {
-                addSlot(new Slot(playerInv, 9 + (column + (row * 9)), 8 + (column * 18), 102 + (row * 18)));
+                addSlot(new Slot(playerInv, 9 + (column + (row * 9)), 8 + (column * 18), 84 + (row * 18)));
             }
         }
     }
 
     private void addPlayerHotbar(PlayerInventory playerInv) {
         for (int column = 0; column < 9; column++) {
-            addSlot(new Slot(playerInv, column, 8 + (column * 18), 160));
+            addSlot(new Slot(playerInv, column, 8 + (column * 18), 142));
         }
     }
 
     private void addBlockInventory(SimpleInventory inputInventory, SimpleInventory outputInventory) {
-        this.addSlot(new Slot(inputInventory, 0, 56, 35));
-        this.addSlot(new Slot(inputInventory, 1, 79, 35));
-        this.addSlot(new Slot(outputInventory, 0, 134, 35) {
+        addSlot(new Slot(inputInventory, 0, 26, 35));
+        addSlot(new Slot(inputInventory, 1, 44, 35));
+        addSlot(new Slot(outputInventory, 0, 116, 35) {
             @Override
             public boolean canInsert(ItemStack stack) {
                 return false;
@@ -90,10 +90,10 @@ public class ExampleRecipeScreenHandler extends ScreenHandler {
             ItemStack inSlot = slot.getStack();
             newStack = inSlot.copy();
 
-            if (slotIndex < 36) {
-                if (!insertItem(inSlot, 36, this.slots.size(), true))
+            if (slotIndex < 3) {
+                if (!insertItem(inSlot, 3, this.slots.size(), true))
                     return ItemStack.EMPTY;
-            } else if (!insertItem(inSlot, 0, 36, false))
+            } else if (!insertItem(inSlot, 0, 3, false))
                 return ItemStack.EMPTY;
 
             if (inSlot.isEmpty())

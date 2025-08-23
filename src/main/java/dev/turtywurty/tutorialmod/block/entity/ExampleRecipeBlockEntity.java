@@ -2,8 +2,12 @@ package dev.turtywurty.tutorialmod.block.entity;
 
 import dev.turtywurty.tutorialmod.TutorialMod;
 import dev.turtywurty.tutorialmod.init.BlockEntityTypeInit;
+import dev.turtywurty.tutorialmod.init.RecipeTypeInit;
 import dev.turtywurty.tutorialmod.network.BlockPosPayload;
+import dev.turtywurty.tutorialmod.recipe.ExampleRecipe;
+import dev.turtywurty.tutorialmod.recipe.ExampleRecipeInput;
 import dev.turtywurty.tutorialmod.screenhandler.ExampleRecipeScreenHandler;
+import dev.turtywurty.tutorialmod.util.OutputSimpleInventory;
 import dev.turtywurty.tutorialmod.util.TickableBlockEntity;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.fabricmc.fabric.api.transfer.v1.item.InventoryStorage;
@@ -20,8 +24,9 @@ import net.minecraft.nbt.NbtElement;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
-import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.recipe.RecipeEntry;
+import net.minecraft.recipe.RecipeManager;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
@@ -34,8 +39,12 @@ import org.jetbrains.annotations.Nullable;
 import team.reborn.energy.api.EnergyStorage;
 import team.reborn.energy.api.base.SimpleEnergyStorage;
 
+import java.util.Optional;
+
 public class ExampleRecipeBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory<BlockPosPayload>, TickableBlockEntity {
     public static final Text TITLE = Text.translatable("container." + TutorialMod.MOD_ID + ".example_recipe");
+
+    private final RecipeManager.MatchGetter<ExampleRecipeInput, ? extends ExampleRecipe> matchGetter;
 
     private final SimpleInventory inputInventory = new SimpleInventory(2) {
         @Override
@@ -45,16 +54,11 @@ public class ExampleRecipeBlockEntity extends BlockEntity implements ExtendedScr
         }
     };
 
-    private final SimpleInventory outputInventory = new SimpleInventory(1) {
+    private final OutputSimpleInventory outputInventory = new OutputSimpleInventory(1) {
         @Override
         public void markDirty() {
             super.markDirty();
             update();
-        }
-
-        @Override
-        public boolean canInsert(ItemStack stack) {
-            return false;
         }
     };
 
@@ -97,29 +101,74 @@ public class ExampleRecipeBlockEntity extends BlockEntity implements ExtendedScr
 
     public ExampleRecipeBlockEntity(BlockPos pos, BlockState state) {
         super(BlockEntityTypeInit.EXAMPLE_RECIPE_BLOCK_ENTITY, pos, state);
+
+        this.matchGetter = RecipeManager.createCachedMatchGetter(RecipeTypeInit.EXAMPLE_RECIPE);
     }
 
     @Override
     public void tick() {
         if(this.world == null || this.world.isClient) return;
 
-        this.maxProgress = 100;
-        if(this.progress++ >= this.maxProgress) {
+        Optional<? extends RecipeEntry<? extends ExampleRecipe>> recipeMatch = this.matchGetter.getFirstMatch(createRecipeInput(), this.world);
+        if(recipeMatch.isEmpty()) {
             this.progress = 0;
-            ((ServerWorld)this.world).spawnParticles(
-                    ParticleTypes.END_ROD,
-                    this.pos.getX() + 0.5,
-                    this.pos.getY() + 1.0,
-                    this.pos.getZ() + 0.5,
-                    10,
-                    0.25,
-                    0.25,
-                    0.25,
-                    0.02
-            );
+            this.maxProgress = 0;
+            update();
+            return;
         }
 
-        update();
+        ExampleRecipe recipe = recipeMatch.get().value();
+        this.maxProgress = recipe.processTime();
+
+        if(canAcceptRecipeOutput(recipe) && this.energyStorage.amount >= recipe.energyCost()) {
+            this.energyStorage.amount -= recipe.energyCost();
+
+            if(this.progress++ >= this.maxProgress) {
+                craftRecipe(recipe);
+            }
+
+            update();
+        } else {
+            this.progress = 0;
+            update();
+        }
+    }
+
+    private ExampleRecipeInput createRecipeInput() {
+        return new ExampleRecipeInput(this.inputInventory.getHeldStacks());
+    }
+
+    private boolean canAcceptRecipeOutput(ExampleRecipe recipe) {
+        return this.outputInventory.canAddStack(recipe.output());
+    }
+
+    private void craftRecipe(ExampleRecipe recipe) {
+        this.outputInventory.addStack(recipe.output().copy());
+
+        for (int i = 0; i < this.inputInventory.size(); i++) {
+            ItemStack inputStack = this.inputInventory.getStack(i);
+            inputStack.decrement(1);
+        }
+
+        this.progress = 0;
+        this.maxProgress = 0;
+        onComplete();
+    }
+
+    private void onComplete() {
+        if(this.world == null || this.world.isClient) return;
+
+        ((ServerWorld)this.world).spawnParticles(
+                ParticleTypes.END_ROD,
+                this.pos.getX() + 0.5,
+                this.pos.getY() + 1.0,
+                this.pos.getZ() + 0.5,
+                10,
+                0.25,
+                0.25,
+                0.25,
+                0.02
+        );
     }
 
     @Override
@@ -180,7 +229,7 @@ public class ExampleRecipeBlockEntity extends BlockEntity implements ExtendedScr
 
     private void update() {
         markDirty();
-        if(world != null)
+        if(world != null && !world.isClient)
             world.updateListeners(pos, getCachedState(), getCachedState(), Block.NOTIFY_ALL);
     }
 

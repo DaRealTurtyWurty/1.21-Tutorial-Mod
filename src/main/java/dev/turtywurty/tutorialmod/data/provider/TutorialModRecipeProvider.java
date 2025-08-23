@@ -1,5 +1,7 @@
 package dev.turtywurty.tutorialmod.data.provider;
 
+import dev.turtywurty.tutorialmod.TutorialMod;
+import dev.turtywurty.tutorialmod.data.builder.ExampleRecipeBuilder;
 import dev.turtywurty.tutorialmod.init.BlockInit;
 import dev.turtywurty.tutorialmod.init.ItemInit;
 import dev.turtywurty.tutorialmod.list.TagList;
@@ -17,6 +19,7 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.resource.featuretoggle.FeatureSet;
 import org.jetbrains.annotations.NotNull;
@@ -276,6 +279,14 @@ public class TutorialModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasTag(ConventionalItemTags.EMPTY_BUCKETS), conditionsFromTag(ConventionalItemTags.EMPTY_BUCKETS))
                 .criterion(hasTag(ConventionalItemTags.IRON_INGOTS), conditionsFromTag(ConventionalItemTags.IRON_INGOTS))
                 .offerTo(exporter);
+
+        ExampleRecipeBuilder.create(
+                Ingredient.ofItems(Items.NETHER_STAR),
+                Ingredient.fromTag(ItemTags.GOLD_ORES),
+                ItemInit.EXAMPLE_FOOD.getDefaultStack(),
+                200,
+                10
+        ).offerTo(exporter, TutorialMod.id("nether_star_and_gold_ore_to_example_food"));
     }
 
     private static @NotNull String hasTag(@NotNull TagKey<Item> tag) {

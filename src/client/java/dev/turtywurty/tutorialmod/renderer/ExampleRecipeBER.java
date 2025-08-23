@@ -9,7 +9,6 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -112,14 +111,9 @@ public record ExampleRecipeBER(BlockEntityRendererFactory.Context context)
         ItemStack stack = entity.getOutputInventory().getStack(0);
         if (stack.isEmpty()) return;
 
-        float progress = MathHelper.clamp(entity.getProgress() / (float) entity.getMaxProgress(), 0f, 1f);
-        float appearT = MathHelper.clamp((progress - SPIN_PORTION) / (1f - SPIN_PORTION), 0f, 1f);
-        float appear = easeOutCubic(appearT);
-
         matrices.push();
         matrices.translate(0, 11/16f + 0.01f, 0);
-        float scale = MathHelper.lerp(appear, 0.0f, 0.25f);
-        matrices.scale(scale, scale, scale);
+        matrices.scale(0.25f, 0.25f, 0.25f);
         matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(90));
         this.context.getItemRenderer().renderItem(stack, ModelTransformationMode.FIXED,
                 light, overlay,
