@@ -123,7 +123,7 @@ public class ExampleRecipeBlockEntity extends BlockEntity implements ExtendedScr
         if(canAcceptRecipeOutput(recipe) && this.energyStorage.amount >= recipe.energyCost()) {
             this.energyStorage.amount -= recipe.energyCost();
 
-            if(this.progress++ >= this.maxProgress) {
+            if(++this.progress >= this.maxProgress) {
                 craftRecipe(recipe);
             }
 
