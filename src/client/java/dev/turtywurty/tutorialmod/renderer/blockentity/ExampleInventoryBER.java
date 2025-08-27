@@ -1,4 +1,4 @@
-package dev.turtywurty.tutorialmod.renderer;
+package dev.turtywurty.tutorialmod.renderer.blockentity;
 
 import dev.turtywurty.tutorialmod.block.ExampleInventoryBlock;
 import dev.turtywurty.tutorialmod.block.entity.ExampleInventoryBlockEntity;

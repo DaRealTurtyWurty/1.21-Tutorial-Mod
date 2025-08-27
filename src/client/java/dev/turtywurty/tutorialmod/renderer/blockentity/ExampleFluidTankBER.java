@@ -1,4 +1,4 @@
-package dev.turtywurty.tutorialmod.renderer;
+package dev.turtywurty.tutorialmod.renderer.blockentity;
 
 import dev.turtywurty.tutorialmod.block.entity.ExampleFluidTankBlockEntity;
 import net.fabricmc.fabric.api.transfer.v1.client.fluid.FluidVariantRendering;
@@ -13,7 +13,6 @@ import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.texture.Sprite;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RotationAxis;
 
 public class ExampleFluidTankBER implements BlockEntityRenderer<ExampleFluidTankBlockEntity> {
     private final BlockEntityRendererFactory.Context context;

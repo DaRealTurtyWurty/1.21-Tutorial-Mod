@@ -35,6 +35,7 @@ public class TutorialMod implements ModInitializer {
         ScreenHandlerTypeInit.load();
         RecipeTypeInit.load();
         RecipeSerializerInit.load();
+        EntityTypeInit.load();
 
         // Event handling
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {

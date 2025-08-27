@@ -1,15 +1,14 @@
 package dev.turtywurty.tutorialmod;
 
 import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
-import dev.turtywurty.tutorialmod.init.BlockEntityTypeInit;
-import dev.turtywurty.tutorialmod.init.BlockInit;
-import dev.turtywurty.tutorialmod.init.BoatInit;
-import dev.turtywurty.tutorialmod.init.ScreenHandlerTypeInit;
+import dev.turtywurty.tutorialmod.init.*;
 import dev.turtywurty.tutorialmod.model.ExampleChestModel;
-import dev.turtywurty.tutorialmod.renderer.ExampleFluidTankBER;
-import dev.turtywurty.tutorialmod.renderer.ExampleInventoryBER;
-import dev.turtywurty.tutorialmod.renderer.ExampleModDynamicItemRenderer;
-import dev.turtywurty.tutorialmod.renderer.ExampleRecipeBER;
+import dev.turtywurty.tutorialmod.model.ExampleEntityModel;
+import dev.turtywurty.tutorialmod.renderer.blockentity.ExampleFluidTankBER;
+import dev.turtywurty.tutorialmod.renderer.blockentity.ExampleInventoryBER;
+import dev.turtywurty.tutorialmod.renderer.entity.ExampleEntityRenderer;
+import dev.turtywurty.tutorialmod.renderer.item.ExampleModDynamicItemRenderer;
+import dev.turtywurty.tutorialmod.renderer.blockentity.ExampleRecipeBER;
 import dev.turtywurty.tutorialmod.screen.ExampleEnergyGeneratorScreen;
 import dev.turtywurty.tutorialmod.screen.ExampleFluidTankScreen;
 import dev.turtywurty.tutorialmod.screen.ExampleInventoryBlockScreen;
@@ -18,6 +17,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
@@ -33,6 +33,7 @@ public class TutorialModClient implements ClientModInitializer {
         // Model Layers
         TerraformBoatClientHelper.registerModelLayers(BoatInit.EXAMPLE_BOAT_ID, false);
         EntityModelLayerRegistry.registerModelLayer(ExampleChestModel.LAYER_LOCATION, ExampleChestModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(ExampleEntityModel.LAYER_LOCATION, ExampleEntityModel::getTexturedModelData);
 
         // Bind Screens to Handlers
         HandledScreens.register(ScreenHandlerTypeInit.EXAMPLE_ENERGY_GENERATOR, ExampleEnergyGeneratorScreen::new);
@@ -47,5 +48,8 @@ public class TutorialModClient implements ClientModInitializer {
 
         // Dynamic Item Renderers
         BuiltinItemRendererRegistry.INSTANCE.register(BlockInit.EXAMPLE_INVENTORY_BLOCK, ExampleModDynamicItemRenderer.INSTANCE);
+
+        // Entity Renderers
+        EntityRendererRegistry.register(EntityTypeInit.EXAMPLE_ENTITY, ExampleEntityRenderer::new);
     }
 }

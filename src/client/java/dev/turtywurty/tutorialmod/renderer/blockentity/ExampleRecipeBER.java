@@ -1,4 +1,4 @@
-package dev.turtywurty.tutorialmod.renderer;
+package dev.turtywurty.tutorialmod.renderer.blockentity;
 
 import dev.turtywurty.tutorialmod.block.entity.ExampleRecipeBlockEntity;
 import net.minecraft.client.render.VertexConsumerProvider;
