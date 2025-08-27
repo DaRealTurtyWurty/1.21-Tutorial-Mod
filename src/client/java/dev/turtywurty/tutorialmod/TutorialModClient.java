@@ -8,6 +8,7 @@ import dev.turtywurty.tutorialmod.init.ScreenHandlerTypeInit;
 import dev.turtywurty.tutorialmod.model.ExampleChestModel;
 import dev.turtywurty.tutorialmod.renderer.ExampleFluidTankBER;
 import dev.turtywurty.tutorialmod.renderer.ExampleInventoryBER;
+import dev.turtywurty.tutorialmod.renderer.ExampleModDynamicItemRenderer;
 import dev.turtywurty.tutorialmod.renderer.ExampleRecipeBER;
 import dev.turtywurty.tutorialmod.screen.ExampleEnergyGeneratorScreen;
 import dev.turtywurty.tutorialmod.screen.ExampleFluidTankScreen;
@@ -15,6 +16,7 @@ import dev.turtywurty.tutorialmod.screen.ExampleInventoryBlockScreen;
 import dev.turtywurty.tutorialmod.screen.ExampleRecipeScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
@@ -42,5 +44,8 @@ public class TutorialModClient implements ClientModInitializer {
         BlockEntityRendererFactories.register(BlockEntityTypeInit.EXAMPLE_INVENTORY_BLOCK_ENTITY, ExampleInventoryBER::new);
         BlockEntityRendererFactories.register(BlockEntityTypeInit.EXAMPLE_FLUID_TANK, ExampleFluidTankBER::new);
         BlockEntityRendererFactories.register(BlockEntityTypeInit.EXAMPLE_RECIPE_BLOCK_ENTITY, ExampleRecipeBER::new);
+
+        // Dynamic Item Renderers
+        BuiltinItemRendererRegistry.INSTANCE.register(BlockInit.EXAMPLE_INVENTORY_BLOCK, ExampleModDynamicItemRenderer.INSTANCE);
     }
 }
