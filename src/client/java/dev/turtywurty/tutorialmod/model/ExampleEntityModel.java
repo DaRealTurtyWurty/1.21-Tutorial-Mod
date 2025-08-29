@@ -1,16 +1,15 @@
 package dev.turtywurty.tutorialmod.model;
 
 import dev.turtywurty.tutorialmod.TutorialMod;
+import dev.turtywurty.tutorialmod.animation.ExampleEntityAnimation;
 import dev.turtywurty.tutorialmod.entity.ExampleEntity;
 import net.minecraft.client.model.*;
-import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 
-public class ExampleEntityModel<T extends ExampleEntity> extends EntityModel<T> {
+public class ExampleEntityModel<T extends ExampleEntity> extends SinglePartEntityModel<T> {
     public static final EntityModelLayer LAYER_LOCATION = new EntityModelLayer(TutorialMod.id("example_entity"), "main");
     public static final Identifier TEXTURE_LOCATION = TutorialMod.id("textures/entity/example_entity.png");
 
@@ -124,8 +123,14 @@ public class ExampleEntityModel<T extends ExampleEntity> extends EntityModel<T> 
 
     @Override
     public void setAngles(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        this.lid.pitch = headPitch * (float) (Math.PI / 180.0);
-        this.lid.yaw = netHeadYaw * (float) (Math.PI / 180.0);
+        getPart().traverse().forEach(ModelPart::resetTransform);
+        updateAnimation(entity.idleAnimationState, ExampleEntityAnimation.IDLE, ageInTicks);
+        updateAnimation(entity.sitAnimationState, ExampleEntityAnimation.SIT, ageInTicks);
+        updateAnimation(entity.tameAnimationState, ExampleEntityAnimation.TAME, ageInTicks);
+
+        this.body.pitch = headPitch * (float) (Math.PI / 180.0);
+        this.body.yaw = netHeadYaw * (float) (Math.PI / 180.0);
+
         this.backRight.pitch = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
         this.backLeft.pitch = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
         this.frontRight.pitch = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
@@ -133,7 +138,7 @@ public class ExampleEntityModel<T extends ExampleEntity> extends EntityModel<T> 
     }
 
     @Override
-    public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, int color) {
-        this.main.render(matrices, vertices, light, overlay, color);
+    public ModelPart getPart() {
+        return this.main;
     }
 }
