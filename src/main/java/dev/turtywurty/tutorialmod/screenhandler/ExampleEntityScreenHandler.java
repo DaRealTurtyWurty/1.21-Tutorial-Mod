@@ -22,6 +22,10 @@ public class ExampleEntityScreenHandler extends ScreenHandler {
         checkSize(this.inventory, 18);
         this.inventory.onOpen(playerInv.player);
 
+        if (!playerInv.player.getWorld().isClient) {
+            playerInv.player.getWorld().sendEntityStatus(this.entity, ExampleEntity.OPEN_STATUS);
+        }
+
         for (int row = 0; row < 3; row++) {
             for (int column = 0; column < 6; column++) {
                 addSlot(new Slot(this.inventory, column + row * 6, 62 + column * 18, 18 + row * 18));
@@ -82,5 +86,9 @@ public class ExampleEntityScreenHandler extends ScreenHandler {
     public void onClosed(PlayerEntity player) {
         super.onClosed(player);
         this.inventory.onClose(player);
+        if (!player.getWorld().isClient) {
+            player.getWorld().sendEntityStatus(this.entity, ExampleEntity.CLOSE_STATUS);
+        }
+    }
     }
 }

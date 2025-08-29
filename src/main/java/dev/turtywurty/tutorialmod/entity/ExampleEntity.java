@@ -233,20 +233,6 @@ public class ExampleEntity extends TameableEntity implements Inventory, Extended
     }
 
     @Override
-    public void onOpen(PlayerEntity player) {
-        if (!getWorld().isClient) {
-            getWorld().sendEntityStatus(this, OPEN_STATUS);
-        }
-    }
-
-    @Override
-    public void onClose(PlayerEntity player) {
-        if (!getWorld().isClient) {
-            getWorld().sendEntityStatus(this, CLOSE_STATUS);
-        }
-    }
-
-    @Override
     public IntegerPayload getScreenOpeningData(ServerPlayerEntity player) {
         return new IntegerPayload(getId());
     }
