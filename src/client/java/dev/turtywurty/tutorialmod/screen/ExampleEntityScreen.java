@@ -4,11 +4,11 @@ import dev.turtywurty.tutorialmod.TutorialMod;
 import dev.turtywurty.tutorialmod.screenhandler.ExampleEntityScreenHandler;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
+import net.minecraft.client.gui.screen.ingame.InventoryScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-// entity area at 8,18 (52x52)
 public class ExampleEntityScreen extends HandledScreen<ExampleEntityScreenHandler> {
     private static final Identifier TEXTURE_LOCATION = TutorialMod.id("textures/gui/container/example_entity.png");
 
@@ -19,6 +19,11 @@ public class ExampleEntityScreen extends HandledScreen<ExampleEntityScreenHandle
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
         context.drawTexture(TEXTURE_LOCATION, this.x, this.y, 0, 0, this.backgroundWidth, this.backgroundHeight);
+
+        InventoryScreen.drawEntity(context, this.x + 8, this.y + 18, this.x + 60, this.y + 70,
+                20, 0f,
+                mouseX, mouseY,
+                this.handler.getEntity());
     }
 
     @Override

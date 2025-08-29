@@ -90,5 +90,8 @@ public class ExampleEntityScreenHandler extends ScreenHandler {
             player.getWorld().sendEntityStatus(this.entity, ExampleEntity.CLOSE_STATUS);
         }
     }
+
+    public ExampleEntity getEntity() {
+        return this.entity;
     }
 }
