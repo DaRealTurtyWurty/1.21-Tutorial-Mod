@@ -2,10 +2,8 @@ package dev.turtywurty.tutorialmod.init;
 
 import dev.turtywurty.tutorialmod.TutorialMod;
 import dev.turtywurty.tutorialmod.network.BlockPosPayload;
-import dev.turtywurty.tutorialmod.screenhandler.ExampleEnergyGeneratorScreenHandler;
-import dev.turtywurty.tutorialmod.screenhandler.ExampleFluidTankScreenHandler;
-import dev.turtywurty.tutorialmod.screenhandler.ExampleInventoryScreenHandler;
-import dev.turtywurty.tutorialmod.screenhandler.ExampleRecipeScreenHandler;
+import dev.turtywurty.tutorialmod.network.IntegerPayload;
+import dev.turtywurty.tutorialmod.screenhandler.*;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
@@ -27,6 +25,9 @@ public class ScreenHandlerTypeInit {
 
     public static final ExtendedScreenHandlerType<ExampleRecipeScreenHandler, BlockPosPayload> EXAMPLE_RECIPE_SCREEN_HANDLER =
             register("example_recipe", ExampleRecipeScreenHandler::new, BlockPosPayload.PACKET_CODEC);
+
+    public static final ExtendedScreenHandlerType<ExampleEntityScreenHandler, IntegerPayload> EXAMPLE_ENTITY =
+            register("example_entity", ExampleEntityScreenHandler::new, IntegerPayload.PACKET_CODEC);
 
     public static <T extends ScreenHandler, D extends CustomPayload> ExtendedScreenHandlerType<T, D> register(String name, ExtendedScreenHandlerType.ExtendedFactory<T, D> factory, PacketCodec<? super RegistryByteBuf, D> codec) {
         return Registry.register(Registries.SCREEN_HANDLER, TutorialMod.id(name), new ExtendedScreenHandlerType<>(factory, codec));

@@ -127,6 +127,8 @@ public class ExampleEntityModel<T extends ExampleEntity> extends SinglePartEntit
         updateAnimation(entity.idleAnimationState, ExampleEntityAnimation.IDLE, ageInTicks);
         updateAnimation(entity.sitAnimationState, ExampleEntityAnimation.SIT, ageInTicks);
         updateAnimation(entity.tameAnimationState, ExampleEntityAnimation.TAME, ageInTicks);
+        updateAnimation(entity.openAnimationState, ExampleEntityAnimation.OPEN, ageInTicks);
+        updateAnimation(entity.closeAnimationState, ExampleEntityAnimation.CLOSE, ageInTicks);
 
         this.body.pitch = headPitch * (float) (Math.PI / 180.0);
         this.body.yaw = netHeadYaw * (float) (Math.PI / 180.0);

@@ -2,6 +2,9 @@ package dev.turtywurty.tutorialmod.entity;
 
 import dev.turtywurty.tutorialmod.init.EntityTypeInit;
 import dev.turtywurty.tutorialmod.init.ItemInit;
+import dev.turtywurty.tutorialmod.network.IntegerPayload;
+import dev.turtywurty.tutorialmod.screenhandler.ExampleEntityScreenHandler;
+import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityStatuses;
@@ -14,20 +17,33 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.Inventory;
+import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.tag.DamageTypeTags;
+import net.minecraft.screen.ScreenHandler;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemScatterer;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class ExampleEntity extends TameableEntity {
+public class ExampleEntity extends TameableEntity implements Inventory, ExtendedScreenHandlerFactory<IntegerPayload> {
+    public static final byte OPEN_STATUS = (byte) 170;
+    public static final byte CLOSE_STATUS = (byte) 171;
     private static final byte TAME_STATUS = (byte) 169;
-
     public final AnimationState idleAnimationState = new AnimationState();
     public final AnimationState sitAnimationState = new AnimationState();
     public final AnimationState tameAnimationState = new AnimationState();
+    public final AnimationState openAnimationState = new AnimationState();
+    public final AnimationState closeAnimationState = new AnimationState();
+
+    private final SimpleInventory inventory = new SimpleInventory(18);
 
     public ExampleEntity(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
@@ -36,6 +52,12 @@ public class ExampleEntity extends TameableEntity {
 
     public ExampleEntity(World world) {
         this(EntityTypeInit.EXAMPLE_ENTITY, world);
+    }
+
+    public static DefaultAttributeContainer.Builder createDefaultAttributes() {
+        return MobEntity.createMobAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 20)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25);
     }
 
     @Override
@@ -68,20 +90,22 @@ public class ExampleEntity extends TameableEntity {
                 itemStack.decrementUnlessCreative(1, player);
 
                 setOwner(player);
-                this.navigation.stop();
-                setTarget(null);
                 setSitting(true);
                 getWorld().sendEntityStatus(this, EntityStatuses.ADD_POSITIVE_PLAYER_REACTION_PARTICLES);
                 getWorld().sendEntityStatus(this, TAME_STATUS);
                 return ActionResult.SUCCESS;
             } else if (isTamed()) {
                 ActionResult result = super.interactMob(player, hand);
-                if (!result.isAccepted() && isOwner(player)) {
-                    setSitting(!isSitting());
-                    return ActionResult.SUCCESS_NO_ITEM_USED;
-                } else {
+                if(result.isAccepted() || !isOwner(player))
                     return result;
+
+                if (!player.shouldCancelInteraction()) {
+                    setSitting(!isSitting());
+                } else {
+                    player.openHandledScreen(this);
                 }
+
+                return ActionResult.SUCCESS_NO_ITEM_USED;
             }
         }
 
@@ -90,7 +114,7 @@ public class ExampleEntity extends TameableEntity {
 
     @Override
     public void tick() {
-        if(getWorld().isClient) {
+        if (getWorld().isClient) {
             this.idleAnimationState.setRunning(!isInsideWaterOrBubbleColumn() && !this.limbAnimator.isLimbMoving(), this.age);
         }
 
@@ -101,8 +125,14 @@ public class ExampleEntity extends TameableEntity {
     public void handleStatus(byte status) {
         super.handleStatus(status);
 
-        if(status == TAME_STATUS) {
+        if (status == TAME_STATUS) {
             this.tameAnimationState.start(this.age);
+        } else if (status == OPEN_STATUS) {
+            this.closeAnimationState.stop();
+            this.openAnimationState.start(this.age);
+        } else if (status == CLOSE_STATUS) {
+            this.openAnimationState.stop();
+            this.closeAnimationState.start(this.age);
         }
     }
 
@@ -114,7 +144,7 @@ public class ExampleEntity extends TameableEntity {
         this.navigation.stop();
         setTarget(null);
 
-        if(sitting) {
+        if (sitting) {
             setPose(EntityPose.SITTING);
         } else {
             setPose(EntityPose.STANDING);
@@ -123,8 +153,8 @@ public class ExampleEntity extends TameableEntity {
 
     @Override
     public void onTrackedDataSet(TrackedData<?> data) {
-        if(POSE.equals(data)) {
-            if(getPose() == EntityPose.SITTING) {
+        if (POSE.equals(data)) {
+            if (getPose() == EntityPose.SITTING) {
                 this.sitAnimationState.start(this.age);
             } else {
                 this.sitAnimationState.stop();
@@ -134,9 +164,99 @@ public class ExampleEntity extends TameableEntity {
         super.onTrackedDataSet(data);
     }
 
-    public static DefaultAttributeContainer.Builder createDefaultAttributes() {
-        return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 20)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25);
+    @Override
+    public void writeCustomDataToNbt(NbtCompound nbt) {
+        super.writeCustomDataToNbt(nbt);
+        nbt.put("Inventory", Inventories.writeNbt(new NbtCompound(), this.inventory.getHeldStacks(), getRegistryManager()));
+    }
+
+    @Override
+    public void readCustomDataFromNbt(NbtCompound nbt) {
+        super.readCustomDataFromNbt(nbt);
+        setSitting(isSitting());
+        Inventories.readNbt(nbt.getCompound("Inventory"), this.inventory.getHeldStacks(), getRegistryManager());
+    }
+
+    public SimpleInventory getInventory() {
+        return this.inventory;
+    }
+
+    @Override
+    protected void dropInventory() {
+        super.dropInventory();
+        ItemScatterer.spawn(getWorld(), this, this.inventory);
+    }
+
+    @Override
+    public int size() {
+        return this.inventory.size();
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return this.inventory.isEmpty();
+    }
+
+    @Override
+    public ItemStack getStack(int slot) {
+        return this.inventory.getStack(slot);
+    }
+
+    @Override
+    public ItemStack removeStack(int slot, int amount) {
+        return this.inventory.removeStack(slot, amount);
+    }
+
+    @Override
+    public ItemStack removeStack(int slot) {
+        return this.inventory.removeStack(slot);
+    }
+
+    @Override
+    public void setStack(int slot, ItemStack stack) {
+        this.inventory.setStack(slot, stack);
+    }
+
+    @Override
+    public void markDirty() {
+        this.inventory.markDirty();
+    }
+
+    @Override
+    public boolean canPlayerUse(PlayerEntity player) {
+        return this.inventory.canPlayerUse(player);
+    }
+
+    @Override
+    public void clear() {
+        this.inventory.clear();
+    }
+
+    @Override
+    public void onOpen(PlayerEntity player) {
+        if (!getWorld().isClient) {
+            getWorld().sendEntityStatus(this, OPEN_STATUS);
+        }
+    }
+
+    @Override
+    public void onClose(PlayerEntity player) {
+        if (!getWorld().isClient) {
+            getWorld().sendEntityStatus(this, CLOSE_STATUS);
+        }
+    }
+
+    @Override
+    public IntegerPayload getScreenOpeningData(ServerPlayerEntity player) {
+        return new IntegerPayload(getId());
+    }
+
+    @Override
+    public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
+        return new ExampleEntityScreenHandler(syncId, playerInventory, this);
+    }
+
+    public boolean areInventoriesEqual(SimpleInventory inventory) {
+        return this.inventory == inventory;
     }
 }

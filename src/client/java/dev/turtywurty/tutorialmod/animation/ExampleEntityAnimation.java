@@ -145,4 +145,18 @@ public class ExampleEntityAnimation {
                     new Keyframe(1.5F, AnimationHelper.createScalingVector(1.0F, 1.0F, 1.0F), Transformation.Interpolations.LINEAR)
             ))
             .build();
+
+    public static final Animation OPEN = Animation.Builder.create(1.0F)
+            .addBoneAnimation("lid", new Transformation(Transformation.Targets.ROTATE,
+                    new Keyframe(0.0F, AnimationHelper.createRotationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.CUBIC),
+                    new Keyframe(1.0F, AnimationHelper.createRotationalVector(-125.0F, 0.0F, 0.0F), Transformation.Interpolations.CUBIC)
+            ))
+            .build();
+
+    public static final Animation CLOSE = Animation.Builder.create(0.5F)
+            .addBoneAnimation("lid", new Transformation(Transformation.Targets.ROTATE,
+                    new Keyframe(0.0F, AnimationHelper.createRotationalVector(-125.0F, 0.0F, 0.0F), Transformation.Interpolations.CUBIC),
+                    new Keyframe(0.5F, AnimationHelper.createRotationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.CUBIC)
+            ))
+            .build();
 }
